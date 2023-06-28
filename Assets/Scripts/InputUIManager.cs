@@ -154,16 +154,16 @@ public class InputUIManager : MonoBehaviour
             ConsoleManager.instance.ShowMessage("Password is Empty!");
             return;
         }
-        if (confirmInput.text == "")
-        {
-            ConsoleManager.instance.ShowMessage("Confirm Password Password is Empty!");
-            return;
-        }
-        if (confirmInput.text != passwordInput.text)
-        {
-            ConsoleManager.instance.ShowMessage("Password Doesn't match");
-            return;
-        }
+        //if (confirmInput.text == "")
+        //{
+        //    ConsoleManager.instance.ShowMessage("Confirm Password Password is Empty!");
+        //    return;
+        //}
+        //if (confirmInput.text != passwordInput.text)
+        //{
+        //    ConsoleManager.instance.ShowMessage("Password Doesn't match");
+        //    return;
+        //}
         if (passwordInput.text.Length < 8)
         {
             ConsoleManager.instance.ShowMessage("Password is not 8 characters!");
