@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ProjectScene/Menu.unity
     guid: 49e875bf66b71454d922009016056394
+  - enabled: 1
+    path: Assets/ProjectScene/AR.unity
+    guid: 5b398218f0c794e14993da29fb68e95e
   m_configObjects: {}
