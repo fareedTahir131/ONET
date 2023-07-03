@@ -199,7 +199,10 @@ public static string BASE_URL = "http://13.53.93.155/";
             Debug.Log("message " + Login_Responce.status.message);
             InputUIManager.instance.LoadingPanel.SetActive(false);
             ConsoleManager.instance.ShowMessage(Login_Responce.status.message);
-            SceneManager.LoadScene(1);
+            if (Login_Responce.status.message== "Logged in successfully.")
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 
