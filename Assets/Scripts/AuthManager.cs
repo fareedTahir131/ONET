@@ -186,11 +186,20 @@ public static string BASE_URL = "http://13.53.93.155/";
         //Send the request then wait here until it returns
         yield return req.SendWebRequest();
 
-        if (req.isNetworkError)
+        if (req.isNetworkError || req.isHttpError || req.isNetworkError)
         {
-            Debug.Log("Error While Sending: " + req.error);
-            ConsoleManager.instance.ShowMessage("Network Error!");
-            InputUIManager.instance.LoadingPanel.SetActive(false);
+            if (req.responseCode == 401)
+            {
+                ConsoleManager.instance.ShowMessage("Invalid Email or Password!");
+                InputUIManager.instance.LoadingPanel.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Error While Sending: " + req.error);
+                ConsoleManager.instance.ShowMessage("Network Error!");
+                InputUIManager.instance.LoadingPanel.SetActive(false);
+            }
+            
         }
         else
         {

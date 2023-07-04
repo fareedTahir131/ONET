@@ -1731,7 +1731,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269515534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425345032}
+        m_TargetAssemblyTypeName: LinkManager, Assembly-CSharp
+        m_MethodName: Open_URL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://onenetworktechnology.com/marketplace/
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269515534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,7 +1905,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338598477}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425345032}
+        m_TargetAssemblyTypeName: LinkManager, Assembly-CSharp
+        m_MethodName: Open_URL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://onenetworktechnology.com/marketplace/
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1352199316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2076,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1373982580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425345032}
+        m_TargetAssemblyTypeName: LinkManager, Assembly-CSharp
+        m_MethodName: Open_URL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://onetitalia.it/shop/
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1373982580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,7 +2209,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1400701859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1646233320}
+        m_TargetAssemblyTypeName: Scene_Manager, Assembly-CSharp
+        m_MethodName: Load_Scene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1400701859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,7 +2342,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1402317312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 425345032}
+        m_TargetAssemblyTypeName: LinkManager, Assembly-CSharp
+        m_MethodName: Open_URL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://onetitalia.it/lavora-con-noi/
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1402317312
 MonoBehaviour:
   m_ObjectHideFlags: 0
