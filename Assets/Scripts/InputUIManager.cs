@@ -15,6 +15,7 @@ public class InputUIManager : MonoBehaviour
 
 
     [Header("Signin Input Area")]
+    public Dropdown LanguageDropdown;
     public InputField s_emailInput;
     public InputField s_passwordInput;
 
@@ -49,6 +50,10 @@ public class InputUIManager : MonoBehaviour
             instance = this;
         }
     }
+    private void Start()
+    {
+        GetSelectedLanguage();
+    }
     public void Next()
     {
         if (nameInput.text == "")
@@ -67,7 +72,24 @@ public class InputUIManager : MonoBehaviour
             return;
         }
     }
-
+    public void OnLanguageChange()
+    {
+        PlayerPrefs.SetString("SelectedLang", LanguageDropdown.options[LanguageDropdown.value].text.ToString());
+        Debug.Log("OnLanguageChange" + PlayerPrefs.GetString("SelectedLang"));
+    }
+    public void GetSelectedLanguage()
+    {
+        //LanguageDropdown.value = LanguageDropdown.options.FindIndex(option => option.text == PlayerPrefs.GetString("SelectedLang"));
+        if (PlayerPrefs.GetString("SelectedLang") != "")
+        {
+            LanguageDropdown.value = LanguageDropdown.options.FindIndex(option => option.text == PlayerPrefs.GetString("SelectedLang"));
+            //PlayerPrefs.SetString("SelectedLang", LanguageDropdown.options[LanguageDropdown.value].text.ToString());
+        }
+        //else
+        //{
+        //    LanguageDropdown.value = LanguageDropdown.options.FindIndex(option => option.text == PlayerPrefs.GetString("SelectedLang"));
+        //}
+    }
     public void SignInUser()
     {
 

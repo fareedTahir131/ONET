@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LanguageMananger : MonoBehaviour
 {
-    public Dropdown LanguageDropdown;
+    
 
     public Screen[] UI_Screens;
 
@@ -13,27 +13,21 @@ public class LanguageMananger : MonoBehaviour
     void Start()
     {
         //TranslateText(0);
-        GetSelectedLanguage();
+        TranslateText();
     }
-    public void OnLanguageChange()
-    {
-        Language = LanguageDropdown.options[LanguageDropdown.value].text.ToString();
-        PlayerPrefs.SetString("SelectedLang", Language);
-        GetSelectedLanguage();
-    }
-    public void GetSelectedLanguage()
+    public void TranslateText()
     {
 
         if (PlayerPrefs.GetString("SelectedLang") == "")
         {
-            Language = LanguageDropdown.options[LanguageDropdown.value].text.ToString();
-            PlayerPrefs.SetString("SelectedLang", Language);
-            
+            //Language = LanguageDropdown.options[LanguageDropdown.value].text.ToString();
+            PlayerPrefs.SetString("SelectedLang", "English");
+            Language = "English";
+            Debug.Log("Language" + Language);
         }
         else
         {
             Language = PlayerPrefs.GetString("SelectedLang");
-            LanguageDropdown.value = LanguageDropdown.options.FindIndex(option => option.text == Language);
         }
         if (Language == "English")
         {

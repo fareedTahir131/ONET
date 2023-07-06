@@ -5317,9 +5317,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1769929097}
+        m_TargetAssemblyTypeName: InputUIManager, Assembly-CSharp
+        m_MethodName: OnLanguageChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2052785739}
         m_TargetAssemblyTypeName: LanguageMananger, Assembly-CSharp
-        m_MethodName: OnLanguageChange
+        m_MethodName: TranslateText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5824,6 +5836,7 @@ MonoBehaviour:
   SignupPanel: {fileID: 804607604}
   SigninPanel: {fileID: 1190353111}
   LoadingPanel: {fileID: 1287600450}
+  LanguageDropdown: {fileID: 1486225695}
   s_emailInput: {fileID: 1783672109}
   s_passwordInput: {fileID: 667353526}
   nameInput: {fileID: 412300118}
@@ -6811,7 +6824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa182d1337a14178ba12162846e0c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanguageDropdown: {fileID: 1486225695}
   UI_Screens:
   - UI_Texts:
     - {fileID: 1103786978}
@@ -6877,6 +6889,70 @@ MonoBehaviour:
       - Log in
       - Nu ai un cont?
       - Inscrie-te
+  - UI_Texts:
+    - {fileID: 964418159}
+    - {fileID: 1108465811}
+    - {fileID: 178458858}
+    - {fileID: 526908697}
+    - {fileID: 2063561765}
+    - {fileID: 326261367}
+    - {fileID: 1234053401}
+    - {fileID: 1999392703}
+    language:
+      English:
+      - Signup
+      - Create your account
+      - Name
+      - Email
+      - Password
+      - Signup
+      - Already Have an Account ?
+      - Login
+      Italian:
+      - Iscrizione
+      - crea il tuo account
+      - Nome
+      - E-mail
+      - Parola d'ordine
+      - Iscrizione
+      - "Hai gi\xE0 un account ?"
+      - Login
+      German:
+      - Anmeldung
+      - Erstelle deinen Account
+      - Name
+      - Email
+      - Password
+      - Anmeldung
+      - Sie haben bereits ein Konto ?
+      - Anmeldung
+      French:
+      - S'inscrire
+      - "Cr\xE9ez votre compte"
+      - Nom
+      - E-mail
+      - Mot de passe
+      - S'inscrire
+      - "Vous avez d\xE9j\xE0 un compte ?"
+      - Connexion
+      Spanish:
+      - Inscribirse
+      - Crea tu cuenta
+      - Nombre
+      - "Correo electr\xF3nico"
+      - "Contrase\xF1a"
+      - Inscribirse
+      - Ya tienes una cuenta ?
+      - Acceso
+      Romanian:
+      - Inscrie-te
+      - Creeaza-ti contul
+      - Nume
+      - E-mail
+      - Parola
+      - Inscrie-te
+      - Ai deja un cont ?
+      - Log in
 --- !u!1 &2063561763
 GameObject:
   m_ObjectHideFlags: 0
