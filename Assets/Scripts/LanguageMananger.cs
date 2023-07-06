@@ -28,10 +28,12 @@ public class LanguageMananger : MonoBehaviour
         {
             Language = LanguageDropdown.options[LanguageDropdown.value].text.ToString();
             PlayerPrefs.SetString("SelectedLang", Language);
+            
         }
         else
         {
             Language = PlayerPrefs.GetString("SelectedLang");
+            LanguageDropdown.value = LanguageDropdown.options.FindIndex(option => option.text == Language);
         }
         if (Language == "English")
         {

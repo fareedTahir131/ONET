@@ -6841,10 +6841,42 @@ MonoBehaviour:
       - Login
       - Non hai un account?
       - Iscrizione
-      German: []
-      French: []
-      Spanish: []
-      Romanian: []
+      German:
+      - Anmeldung
+      - Melde dich in deinem Konto an
+      - Email
+      - Passwort
+      - Passwort vergessen
+      - Anmeldung
+      - Sie haben kein Konto?
+      - Anmeldung
+      French:
+      - Connexion
+      - "Connectez-vous \xE0 votre compte"
+      - E-mail
+      - Mot de passe
+      - "Mot de passe oubli\xE9"
+      - Connexion
+      - "Vous n'avez pas de compte\_?"
+      - S'inscrire
+      Spanish:
+      - Acceso
+      - Ingrese a su cuenta
+      - "Correo electr\xF3nico"
+      - "Contrase\xF1a"
+      - "Has olvidado tu contrase\xF1a"
+      - Acceso
+      - "\xBFNo tienes una cuenta?"
+      - Inscribirse
+      Romanian:
+      - Log in
+      - conecteaza-te la contul tau
+      - E-mail
+      - Parola
+      - "A\u0163i uitat parola"
+      - Log in
+      - Nu ai un cont?
+      - Inscrie-te
 --- !u!1 &2063561763
 GameObject:
   m_ObjectHideFlags: 0
