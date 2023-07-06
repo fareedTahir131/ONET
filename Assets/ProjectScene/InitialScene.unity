@@ -155,6 +155,7 @@ RectTransform:
   m_Children:
   - {fileID: 1271226738}
   - {fileID: 405989112}
+  - {fileID: 284146388}
   - {fileID: 1558475672}
   m_Father: {fileID: 313117934}
   m_RootOrder: 2
@@ -368,6 +369,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227132560}
+  m_CullTransparentMesh: 1
+--- !u!1 &284146387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284146388}
+  - component: {fileID: 284146390}
+  - component: {fileID: 284146389}
+  m_Layer: 5
+  m_Name: Title (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &284146388
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284146387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 39966244}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.26379192}
+  m_AnchorMax: {x: 1, y: 0.26379192}
+  m_AnchoredPosition: {x: 14.39502, y: 2}
+  m_SizeDelta: {x: -111.03, y: 141.8955}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &284146389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284146387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7ed4fe3ac51e84e2ca4cd25c51a5544e, type: 3}
+    m_FontSize: 101
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 106
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: INOVAZIONE
+--- !u!222 &284146390
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284146387}
   m_CullTransparentMesh: 1
 --- !u!1 &313117933
 GameObject:
@@ -1042,12 +1123,12 @@ RectTransform:
   m_Children:
   - {fileID: 227132561}
   m_Father: {fileID: 39966244}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.26379192}
-  m_AnchorMax: {x: 1, y: 0.26379192}
-  m_AnchoredPosition: {x: 14.39502, y: -63}
-  m_SizeDelta: {x: -111.03003, y: 264.5477}
+  m_AnchorMin: {x: 0, y: 0.19515267}
+  m_AnchorMax: {x: 1, y: 0.19515267}
+  m_AnchoredPosition: {x: 21.344421, y: -2.0616455}
+  m_SizeDelta: {x: -97.1312, y: 136.4245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558475673
 MonoBehaviour:
@@ -1082,9 +1163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'INOVAZIONE
-
-    E TECHNOLOGIA'
+  m_Text: E TECHNOLOGIA
 --- !u!222 &1558475674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1358,136 +1437,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa182d1337a14178ba12162846e0c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanguageDropdown: {fileID: 0}
   UI_Screens:
   - UI_Texts:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 284146389}
+    - {fileID: 1558475673}
+    - {fileID: 227132562}
+    - {fileID: 461851048}
     language:
       English:
-      - Login
-      - Login to your account
-      - Email
-      - Password
-      - Forgot Password
-      - Login
-      - Don't Have an Account?
-      - Signup
+      - INNOVATION
+      - AND TECHNOLOGY
+      - By framing billboards with your smartphone, business cards, flyers and gadgets
+        you can view fantastic videos and 3d reconstructions in Augmented Reality
+        and find the best for your shopping, but also restaurants, malls, gyms and
+        more!
+      - START
       Italian:
-      - Login
-      - Accedi al tuo account
-      - E-mail
-      - Parola d'ordine
-      - Ha dimenticato la password
-      - Login
-      - Non hai un account?
-      - Iscrizione
+      - INNOVAZIONE
+      - E TECNOLOGIA
+      - "Inquadrando i cartelloni pubblicitari con il tuo smartphone, biglietti da
+        visita, volantini e gadget potrai visionare fantastici video e ricostruzioni
+        3d in Realt\xE0 Aumentata e trova il meglio per i tuoi acquisti, ma anche
+        ristoranti, centri commerciali, palestre e non solo!"
+      - INIZIA
       German:
-      - Anmeldung
-      - Melde dich in deinem Konto an
-      - Email
-      - Passwort
-      - Passwort vergessen
-      - Anmeldung
-      - Sie haben kein Konto?
-      - Anmeldung
+      - INNOVATION
+      - UND TECHNOLOGIE
+      - "Indem Sie Werbetafeln mit Ihrem Smartphone einrahmen, Visitenkarten, Flyer
+        und Gadgets k\xF6nnen Sie fantastische Videos ansehen und 3D-Rekonstruktionen
+        in Augmented Reality und finden Sie das Beste daf\xFCr Ihre Eink\xE4ufe,
+        aber auch Restaurants, Einkaufszentren, Fitnessstudios und mehr!"
+      - START
       French:
-      - Connexion
-      - "Connectez-vous \xE0 votre compte"
-      - E-mail
-      - Mot de passe
-      - "Mot de passe oubli\xE9"
-      - Connexion
-      - "Vous n'avez pas de compte\_?"
-      - S'inscrire
+      - INNOVATION
+      - ET LA TECHNOLOGIE
+      - "En encadrant des panneaux publicitaires avec votre smartphone, cartes de
+        visite, d\xE9pliants et gadgets, vous pouvez visionner des vid\xE9os fantastiques
+        et reconstructions 3d en R\xE9alit\xE9 Augment\xE9e et trouvez le meilleur
+        pour vos courses, mais aussi restaurants, centres commerciaux, gymnases et
+        plus encore!"
+      - Commencer
       Spanish:
-      - Acceso
-      - Ingrese a su cuenta
-      - "Correo electr\xF3nico"
-      - "Contrase\xF1a"
-      - "Has olvidado tu contrase\xF1a"
-      - Acceso
-      - "\xBFNo tienes una cuenta?"
-      - Inscribirse
+      - "INNOVACI\xD3N"
+      - "Y TECNOLOG\xCDA"
+      - "Al enmarcar vallas publicitarias con su tel\xE9fono inteligente, tarjetas
+        de visita, volantes y gadgets puedes ver videos fant\xE1sticos y reconstrucciones
+        3d en Realidad Aumentada y encuentra lo mejor para tus compras, pero tambi\xE9n
+        restaurantes, centros comerciales, gimnasios y mas!"
+      - Comenzar
       Romanian:
-      - Log in
-      - conecteaza-te la contul tau
-      - E-mail
-      - Parola
-      - "A\u0163i uitat parola"
-      - Log in
-      - Nu ai un cont?
-      - Inscrie-te
-  - UI_Texts:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    language:
-      English:
-      - Signup
-      - Create your account
-      - Name
-      - Email
-      - Password
-      - Signup
-      - Already Have an Account ?
-      - Login
-      Italian:
-      - Iscrizione
-      - crea il tuo account
-      - Nome
-      - E-mail
-      - Parola d'ordine
-      - Iscrizione
-      - "Hai gi\xE0 un account ?"
-      - Login
-      German:
-      - Anmeldung
-      - Erstelle deinen Account
-      - Name
-      - Email
-      - Password
-      - Anmeldung
-      - Sie haben bereits ein Konto ?
-      - Anmeldung
-      French:
-      - S'inscrire
-      - "Cr\xE9ez votre compte"
-      - Nom
-      - E-mail
-      - Mot de passe
-      - S'inscrire
-      - "Vous avez d\xE9j\xE0 un compte ?"
-      - Connexion
-      Spanish:
-      - Inscribirse
-      - Crea tu cuenta
-      - Nombre
-      - "Correo electr\xF3nico"
-      - "Contrase\xF1a"
-      - Inscribirse
-      - Ya tienes una cuenta ?
-      - Acceso
-      Romanian:
-      - Inscrie-te
-      - Creeaza-ti contul
-      - Nume
-      - E-mail
-      - Parola
-      - Inscrie-te
-      - Ai deja un cont ?
-      - Log in
+      - "INOVA\u0162IE"
+      - SI TEHNOLOGIE
+      - "\xCEncadr\xE2nd panouri cu smartphone-ul dvs., c\u0103r\u021Bi de vizit\u0103,
+        flutura\u0219i \u0219i gadgeturi pute\u021Bi viziona videoclipuri fantastice
+        \u0219i reconstruc\u021Bii 3d \xEEn Realitatea Augmentat\u0103 \u0219i g\u0103si\u021Bi
+        cel mai bun pentru cump\u0103r\u0103turile dvs., dar \u0219i restaurantele,
+        mall-urile, s\u0103li de sport \u0219i multe altele!"
+      - START
 --- !u!1 &2113461694
 GameObject:
   m_ObjectHideFlags: 0

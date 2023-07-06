@@ -1485,6 +1485,7 @@ Transform:
   m_Children:
   - {fileID: 1646233321}
   - {fileID: 425345031}
+  - {fileID: 2052785738}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3340,6 +3341,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017873708}
   m_CullTransparentMesh: 1
+--- !u!1 &2052785737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052785738}
+  - component: {fileID: 2052785739}
+  m_Layer: 0
+  m_Name: LanguageMananger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2052785738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052785737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163667925}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052785739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052785737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa182d1337a14178ba12162846e0c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI_Screens:
+  - UI_Texts:
+    - {fileID: 1175611399}
+    - {fileID: 1928381139}
+    - {fileID: 383582928}
+    - {fileID: 435987227}
+    - {fileID: 2017873710}
+    - {fileID: 520785926}
+    - {fileID: 1910582081}
+    - {fileID: 1849690297}
+    - {fileID: 27877185}
+    language:
+      English:
+      - HOME
+      - FOCUS AND DISCOVER
+      - Frame logo, card, etc. with your smartphone and live a unique experience.
+      - DISCOVER AROUND YOU
+      - Find the activities and tourist attractions closest to you!
+      - SHOP
+      - Order your innovative services
+      - WORK WITH US
+      - Join our dynamic and passionate team
+      Italian:
+      - CASA
+      - CONCENTRATI E SCOPRI
+      - Inquadra logo, card, ecc. con il tuo smartphone e vivi un'esperienza unica.
+      - SCOPRI INTORNO A TE
+      - "Trova le attivit\xE0 e le attrazioni turistiche pi\xF9 vicine a te!"
+      - NEGOZIO
+      - Ordina i tuoi servizi innovativi
+      - LAVORA CON NOI
+      - Unisciti al nostro team dinamico e appassionato
+      German:
+      - HEIM
+      - FOKUSSIEREN UND ENTDECKEN
+      - Rahmen Sie Logo, Karte usw. mit Ihrem Smartphone ein und erleben Sie ein
+        einzigartiges Erlebnis.
+      - Entdecken Sie Ihre Umgebung
+      - "Finden Sie die Aktivit\xE4ten und Touristenattraktionen in Ihrer N\xE4he!"
+      - "GESCH\xC4FT"
+      - Bestellen Sie Ihre innovativen Dienstleistungen
+      - ARBEITE MIT UNS
+      - Werden Sie Teil unseres dynamischen und leidenschaftlichen Teams
+      French:
+      - MAISON
+      - "SE CONCENTRER ET D\xC9COUVRIR"
+      - "Cadrez logo, carte, etc. avec votre smartphone et vivez une exp\xE9rience
+        unique."
+      - "D\xC9COUVREZ AUTOUR DE VOUS"
+      - "Trouvez les activit\xE9s et attraits touristiques les plus proches de chez
+        vous !"
+      - BOUTIQUE
+      - Commandez vos services innovants
+      - TRAVAILLE AVEC NOUS
+      - "Joignez-vous \xE0 notre \xE9quipe dynamique et passionn\xE9e"
+      Spanish:
+      - HOGAR
+      - ENFOQUE Y DESCUBRA
+      - "Enmarca logo, tarjeta, etc. con tu smartphone y vive una experiencia \xFAnica."
+      - DESCUBRE A TU ALREDEDOR
+      - "\xA1Encuentra las actividades y atracciones tur\xEDsticas m\xE1s cercanas
+        a ti!"
+      - COMERCIO
+      - Solicite sus servicios innovadores
+      - TRABAJA CON NOSOTROS
+      - "\xDAnete a nuestro equipo din\xE1mico y apasionado"
+      Romanian:
+      - "ACAS\u0102"
+      - "CONCENTRA\u021AI-V\u0102 \u0218I DEscoperi\u021Bi"
+      - "\xCEncadra\u021Bi logo-ul, cardul etc. cu smartphone-ul \u0219i tr\u0103i\u021Bi
+        o experien\u021B\u0103 unic\u0103."
+      - DEscopera in jurul tau
+      - "G\u0103si\u021Bi activit\u0103\u021Bile \u0219i atrac\u021Biile turistice
+        cele mai apropiate de dvs.!"
+      - MAGAZIN
+      - "Comanda\u021Bi-v\u0103 serviciile inovatoare"
+      - LUCREAZA CU NOI
+      - "Al\u0103tur\u0103-te echipei noastre dinamice \u0219i pasionate"
 --- !u!1 &2054193051
 GameObject:
   m_ObjectHideFlags: 0
