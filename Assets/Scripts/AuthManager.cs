@@ -116,7 +116,8 @@ public static string BASE_URL = "http://13.53.93.155/";
             LoginResponce.Root Login_Responce = JsonUtility.FromJson<LoginResponce.Root>(req.downloadHandler.text);
             Debug.Log("message " + Login_Responce.status.message);
             InputUIManager.instance.LoadingPanel.SetActive(false);
-            ConsoleManager.instance.ShowMessage(Login_Responce.status.message);
+            ConsoleManager.instance.ShowMessage("Signed Up Successfully!");
+            //ConsoleManager.instance.ShowMessage(Login_Responce.status.message);
             InputUIManager.instance.SigninPanel.SetActive(true);
             InputUIManager.instance.SignupPanel.SetActive(false);
         }
@@ -207,7 +208,8 @@ public static string BASE_URL = "http://13.53.93.155/";
             LoginResponce.Root Login_Responce = JsonUtility.FromJson<LoginResponce.Root>(req.downloadHandler.text);
             Debug.Log("message " + Login_Responce.status.message);
             InputUIManager.instance.LoadingPanel.SetActive(false);
-            ConsoleManager.instance.ShowMessage(Login_Responce.status.message);
+            ConsoleManager.instance.ShowMessage("Logged in successfully!");
+            //ConsoleManager.instance.ShowMessage(Login_Responce.status.message);
             if (Login_Responce.status.message== "Logged in successfully.")
             {
                 SceneManager.LoadScene(1);

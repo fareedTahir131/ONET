@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ConsoleManager : MonoBehaviour
 {
     public static ConsoleManager instance;
+    public Languages languages;
+    private int LanguageIndex = -1;
+    private string Language = "";
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class ConsoleManager : MonoBehaviour
     public void ShowMessage(string message)
     {
         StopAllCoroutines();
+        message = TranslateMsg(message);
         messageText.text = message;
         animator.SetTrigger("FadeIn");
         StartCoroutine(HideMessage());
@@ -43,5 +47,52 @@ public class ConsoleManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         animator.SetTrigger("FadeOut");
     }
-
+    private string TranslateMsg(string Msg)
+    {
+        for (int i = 0; i < languages.English.Length; i++)
+        {
+            if (Msg== languages.English[i])
+            {
+                LanguageIndex = i;
+                break;
+            }
+        }
+        if (LanguageIndex>-1)
+        {
+            return Translate(LanguageIndex);
+        }
+        return Msg;
+    }
+    private string Translate(int index)
+    {
+        Language = PlayerPrefs.GetString("SelectedLang");
+        if (Language == "English")
+        {
+            return languages.English[index];
+        }
+        else if (Language == "Italian")
+        {
+            return languages.Italian[index];
+        }
+        else if (Language == "German")
+        {
+            return languages.German[index];
+        }
+        else if (Language == "French")
+        {
+            return languages.French[index];
+        }
+        else if (Language == "Spanish")
+        {
+            return languages.Spanish[index];
+        }
+        else if (Language == "Romanian")
+        {
+            return languages.Romanian[index];
+        }
+        else
+        {
+            return languages.English[index];
+        }
+    }
 }

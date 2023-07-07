@@ -313,6 +313,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be0d89ef0dec49afbea94b74be8aa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languages:
+    English:
+    - Name is Empty!
+    - Email is Empty!
+    - Email not Valid!
+    - Password is Empty!
+    - Password is not 8 characters!
+    - Network Error!
+    - Signed Up Successfully!
+    - Invalid Email or Password!
+    - Logged in successfully!
+    Italian:
+    - "Il nome \xE8 vuoto!"
+    - "L'e-mail \xE8 vuota!"
+    - Email non valida!
+    - "La password \xE8 vuota!"
+    - "La password non \xE8 di 8 caratteri!"
+    - Errore di rete!
+    - Registrato con successo!
+    - E-mail o password non validi!
+    - Accesso effettuato con successo!
+    German:
+    - Name ist leer!
+    - E-Mail ist leer!
+    - "E-Mail nicht g\xFCltig!"
+    - Passwort ist leer!
+    - Das Passwort ist nicht 8 Zeichen lang!
+    - Netzwerkfehler!
+    - Erfolgreich angemeldet!
+    - "Ung\xFCltige E-Mail oder Passwort!"
+    - Erfolgreich eingeloggt!
+    French:
+    - "Le nom est vide\_!"
+    - "L'e-mail est vide\_!"
+    - "E-mail non valide\_!"
+    - "Le mot de passe est vide\_!"
+    - "Le mot de passe n'est pas compos\xE9 de 8 caract\xE8res\_!"
+    - "Erreur r\xE9seau\_!"
+    - "Inscription r\xE9ussie\_!"
+    - Email ou mot de passe invalide!
+    - "Connect\xE9 avec succ\xE8s!"
+    Spanish:
+    - "\xA1El nombre est\xE1 vac\xEDo!"
+    - "\xA1El correo electr\xF3nico est\xE1 vac\xEDo!"
+    - "\xA1El correo electr\xF3nico no es v\xE1lido!"
+    - "\xA1La contrase\xF1a est\xE1 vac\xEDa!"
+    - "\xA1La contrase\xF1a no tiene 8 caracteres!"
+    - "\xA1Error de red!"
+    - "\xA1Registrado con \xE9xito!"
+    - "\xA1Correo electr\xF3nico o contrase\xF1a no v\xE1lidos!"
+    - "\xA1Iniciado sesi\xF3n correctamente!"
+    Romanian:
+    - Numele este gol!
+    - E-mailul este gol!
+    - E-mailul nu este valid!
+    - "Parola este goal\u0103!"
+    - Parola nu are 8 caractere!
+    - "Eroare de re\u021Bea!"
+    - "\xCEnscris cu succes!"
+    - "E-mail nevalid\u0103 sau parola!"
+    - Autentificat cu succes!
 --- !u!95 &76743113
 Animator:
   serializedVersion: 4
