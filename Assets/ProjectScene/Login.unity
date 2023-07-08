@@ -2067,8 +2067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.87695, y: 50}
-  m_SizeDelta: {x: 278.2937, y: 77.2907}
+  m_AnchoredPosition: {x: 239.03943, y: 50.000004}
+  m_SizeDelta: {x: 456.6187, y: 77.2907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466433594
 MonoBehaviour:
@@ -3113,8 +3113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -48.88048, y: 53}
-  m_SizeDelta: {x: 312.4537, y: 64.3994}
+  m_AnchoredPosition: {x: -71, y: 53}
+  m_SizeDelta: {x: 372.4687, y: 64.3994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765404872
 MonoBehaviour:
@@ -3149,7 +3149,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Don't Have Account?
+  m_Text: Don't Have an Account?
 --- !u!222 &765404873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4448,8 +4448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.35224074}
   m_AnchorMax: {x: 1, y: 0.35224074}
-  m_AnchoredPosition: {x: -257.36334, y: 1.8011475}
-  m_SizeDelta: {x: 282.81262, y: 64.399414}
+  m_AnchoredPosition: {x: -409.40588, y: 1.8011475}
+  m_SizeDelta: {x: 586.8977, y: 64.3994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084331849
 MonoBehaviour:
@@ -4473,11 +4473,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 45beba4f90739492f809a409c3770507, type: 3}
-    m_FontSize: 31
+    m_FontSize: 10
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 31
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4971,8 +4971,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -81.39604, y: 84.67401}
-  m_SizeDelta: {x: 377.4848, y: 64.3994}
+  m_AnchoredPosition: {x: -58.6, y: 84.67401}
+  m_SizeDelta: {x: 407.48, y: 64.3994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234053401
 MonoBehaviour:
@@ -5739,7 +5739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000013694167, y: 79}
+  m_AnchoredPosition: {x: -0.2115, y: 84.674}
   m_SizeDelta: {x: 821.8776, y: 64.3994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545928236
@@ -5775,7 +5775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "One Network Tecnology Srl \xA9 Tutti i diritti riservati"
+  m_Text: "One Network Tecnology Srl \xA9 All rights reserved."
 --- !u!222 &1545928237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6909,11 +6909,11 @@ MonoBehaviour:
       - Login
       - Accedi al tuo account
       - E-mail
-      - Parola d'ordine
-      - Ha dimenticato la password
+      - Password
+      - Hai dimenticato la password?
       - Login
       - Non hai un account?
-      - Iscrizione
+      - Iscriviti
       German:
       - Anmeldung
       - Melde dich in deinem Konto an
@@ -6970,14 +6970,14 @@ MonoBehaviour:
       - Already Have an Account ?
       - Login
       Italian:
-      - Iscrizione
-      - crea il tuo account
+      - Iscriviti
+      - Crea il tuo account
       - Nome
       - E-mail
-      - Parola d'ordine
-      - Iscrizione
+      - Password
+      - Iscriviti
       - "Hai gi\xE0 un account ?"
-      - Login
+      - Accedi
       German:
       - Anmeldung
       - Erstelle deinen Account
@@ -7049,8 +7049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 162.6557, y: 58}
-  m_SizeDelta: {x: 291.818, y: 78.7949}
+  m_AnchoredPosition: {x: 213.49646, y: 58}
+  m_SizeDelta: {x: 393.4995, y: 78.7949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063561765
 MonoBehaviour:

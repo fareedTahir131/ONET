@@ -183,11 +183,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b9f46608326d04de6a4df032a753c6a9, type: 3}
-    m_FontSize: 26
+    m_FontSize: 11
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -615,8 +615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.057564672, y: 0.10749025}
   m_AnchorMax: {x: 0.595, y: 0.45700002}
-  m_AnchoredPosition: {x: -0.037719727, y: 0.058784485}
-  m_SizeDelta: {x: 0.06549072, y: -0.5562973}
+  m_AnchoredPosition: {x: -0.035217285, y: 0.058784485}
+  m_SizeDelta: {x: 0.070496, y: -0.5563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383582928
 MonoBehaviour:
@@ -640,11 +640,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b9f46608326d04de6a4df032a753c6a9, type: 3}
-    m_FontSize: 26
+    m_FontSize: 17
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -765,11 +765,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7ed4fe3ac51e84e2ca4cd25c51a5544e, type: 3}
-    m_FontSize: 46
+    m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 47
+    m_MaxSize: 46
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -847,9 +847,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 7ed4fe3ac51e84e2ca4cd25c51a5544e, type: 3}
     m_FontSize: 46
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 47
+    m_MaxSize: 46
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3081,11 +3081,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7ed4fe3ac51e84e2ca4cd25c51a5544e, type: 3}
-    m_FontSize: 46
+    m_FontSize: 26
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 47
+    m_MaxSize: 46
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3161,11 +3161,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b9f46608326d04de6a4df032a753c6a9, type: 3}
-    m_FontSize: 26
+    m_FontSize: 8
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3241,11 +3241,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7ed4fe3ac51e84e2ca4cd25c51a5544e, type: 3}
-    m_FontSize: 46
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 47
+    m_MaxSize: 46
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3321,11 +3321,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b9f46608326d04de6a4df032a753c6a9, type: 3}
-    m_FontSize: 26
+    m_FontSize: 17
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3408,9 +3408,9 @@ MonoBehaviour:
       - WORK WITH US
       - Join our dynamic and passionate team
       Italian:
-      - CASA
-      - CONCENTRATI E SCOPRI
-      - Inquadra logo, card, ecc. con il tuo smartphone e vivi un'esperienza unica.
+      - Home
+      - INQUADRA E SCOPRI
+      - Inquadra con il tuo smartphone logo o card e vivi un'esperienza unica
       - SCOPRI INTORNO A TE
       - "Trova le attivit\xE0 e le attrazioni turistiche pi\xF9 vicine a te!"
       - NEGOZIO
