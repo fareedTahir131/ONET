@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ConsoleManager : MonoBehaviour
 {
     public static ConsoleManager instance;
-    public Languages languages;
+    public TranslationClasses.Languages languages;
     private int LanguageIndex = -1;
     private string Language = "";
 

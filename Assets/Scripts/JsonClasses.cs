@@ -53,24 +53,27 @@ namespace LoginResponce
 
 //////////
 //Class for language
-[Serializable]
-public class UI_Screens
+namespace TranslationClasses
 {
-    public Screen[] screens;
-}
-[Serializable]
-public class Screen
-{
-    public Text[] UI_Texts;
-    public Languages language;
-}
-[Serializable]
-public class Languages
-{
-    public string[] English;
-    public string[] Italian;
-    public string[] German;
-    public string[] French;
-    public string[] Spanish;
-    public string[] Romanian;
+    [Serializable]
+    public class UI_Screens
+    {
+        public Screen[] screens;
+    }
+    [Serializable]
+    public class Screen
+    {
+        public Text[] UI_Texts;
+        public Languages language;
+    }
+    [Serializable]
+    public class Languages
+    {
+        public string[] English;
+        public string[] Italian;
+        public string[] German;
+        public string[] French;
+        public string[] Spanish;
+        public string[] Romanian;
+    }
 }

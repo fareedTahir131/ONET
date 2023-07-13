@@ -7,7 +7,7 @@ public class LanguageMananger : MonoBehaviour
 {
     
 
-    public Screen[] UI_Screens;
+    public TranslationClasses.Screen[] UI_Screens;
 
     private string Language = "";
     void Start()
