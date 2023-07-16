@@ -77,3 +77,13 @@ namespace TranslationClasses
         public string[] Romanian;
     }
 }
+
+[Serializable]
+public class MetaDataRoot
+{
+    public int id;
+    public int video_id;
+    public string video_url;
+    public string target_image_link;
+}
+

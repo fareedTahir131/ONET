@@ -8,6 +8,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     private string mTargetMetadata = "";
     public ImageTargetBehaviour ImageTargetTemplate;
 
+    public Vimeo.Player.VimeoPlayer VideoPlayer;
+
     // Register cloud reco callbacks
     void Awake()
     {
@@ -57,6 +59,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         Debug.Log("mTargetMetadata "+ mTargetMetadata);
+        VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
         mCloudRecoBehaviour.CloudRecoEnabled = false;
         // Build augmentation based on target 
