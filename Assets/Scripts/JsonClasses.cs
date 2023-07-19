@@ -84,6 +84,8 @@ public class MetaDataRoot
     public int id;
     public int video_id;
     public string video_url;
-    public string target_image_link;
+    public string website_url;
+    public string target_name;
+    public string image_link;
 }
 

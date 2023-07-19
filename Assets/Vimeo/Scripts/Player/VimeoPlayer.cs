@@ -24,8 +24,11 @@ namespace Vimeo.Player
         public event VimeoEvent OnFrameReady;
         public event VimeoEvent OnLoadError;
 
+
         public GameObject videoScreen;
         public AudioSource audioSource;
+
+        
 
         public string videoName;
         public string videoThumbnailUrl;
@@ -43,11 +46,13 @@ namespace Vimeo.Player
         private bool videoControllerReady = false;
 
         private bool IsTargetFound = false;
+        private bool IsVideoPlayed = false;
 
         public string m_file_url;
 
         public void Start()
         {
+            IsVideoPlayed = false;
             IsTargetFound = false;
             Application.runInBackground = true;
 
@@ -94,6 +99,7 @@ namespace Vimeo.Player
 
         public void LoadVideo(int vimeo_id)
         {
+            LoadingManager.Instance.Loading(false);
             loadingVideoMetadata = true;
             videoControllerReady = false;
 
@@ -108,6 +114,7 @@ namespace Vimeo.Player
         }
         public void SetVideoLinkAndPlay(string Url)
         {
+            LoadingManager.Instance.Loading(true);
             MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(Url);
             Debug.Log("Url " + Url);
             if (!IsTargetFound)
@@ -119,6 +126,7 @@ namespace Vimeo.Player
                     LoadAndPlayVideo();
                     //LoadVideo(Url.text);
                     IsTargetFound = true;
+                    IsVideoPlayed = true;
                     Debug.Log("vimeoVideoId " + vimeoVideoId);
                 }
                 else
@@ -128,6 +136,7 @@ namespace Vimeo.Player
             }
             else
             {
+                LoadingManager.Instance.Loading(false);
                 Play();
             }
 
@@ -146,6 +155,13 @@ namespace Vimeo.Player
         public void TargetFound()
         {
             IsTargetFound = true;
+        }
+        public void PlayVideoOnTargetFound()
+        {
+            if (IsVideoPlayed)
+            {
+                Play();
+            }
         }
         public void PauseVideoOnTargetLost()
         {

@@ -6,7 +6,11 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     private CloudRecoBehaviour mCloudRecoBehaviour;
     private bool mIsScanning = false;
     private string mTargetMetadata = "";
+    private string WebUrl = "";
     public ImageTargetBehaviour ImageTargetTemplate;
+
+    public GameObject WebsiteButton;
+    public string MetData;
 
     public Vimeo.Player.VimeoPlayer VideoPlayer;
 
@@ -58,8 +62,13 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             (TargetFinder.CloudRecoSearchResult)targetSearchResult;
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
-        Debug.Log("mTargetMetadata "+ mTargetMetadata);
-        VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        //Debug.Log("mTargetMetadata "+ mTargetMetadata);
+        //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+        //if (ImageMetaData.website_url!="" || ImageMetaData.website_url !=null)
+        //{
+        //    WebsiteButton.SetActive(true);
+        //}
+        VideoPlayer.SetVideoLinkAndPlay(MetData);
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
         mCloudRecoBehaviour.CloudRecoEnabled = false;
@@ -71,7 +80,10 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             tracker.GetTargetFinder<ImageTargetFinder>().EnableTracking(targetSearchResult, ImageTargetTemplate.gameObject);
         }
     }
-
+    public void OpenWebUrl()
+    {
+        Application.OpenURL(WebUrl);
+    }
     void OnGUI()
     {
         // Display current 'scanning' status
