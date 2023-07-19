@@ -37,7 +37,8 @@ public class AuthManager : MonoBehaviour
     }
 
 
-public static string BASE_URL = "http://13.53.93.155/";
+//public static string BASE_URL = "http://13.53.93.155/";
+public static string BASE_URL = "http://16.171.149.101/";
 
     public void CreateUser(string name, string email, string password)
     {

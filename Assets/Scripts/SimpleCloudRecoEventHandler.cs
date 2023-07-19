@@ -62,13 +62,26 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             (TargetFinder.CloudRecoSearchResult)targetSearchResult;
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
-        //Debug.Log("mTargetMetadata "+ mTargetMetadata);
-        //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
-        //if (ImageMetaData.website_url!="" || ImageMetaData.website_url !=null)
-        //{
-        //    WebsiteButton.SetActive(true);
-        //}
-        VideoPlayer.SetVideoLinkAndPlay(MetData);
+        Debug.Log("mTargetMetadata " + mTargetMetadata);
+        
+        VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        try
+        {
+            MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+            if (ImageMetaData.website_url != "" || ImageMetaData.website_url != null)
+            {
+                WebUrl = ImageMetaData.website_url;
+                WebsiteButton.SetActive(true);
+            }
+            else
+            {
+                WebsiteButton.SetActive(false);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log("ex "+ ex);
+        }
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
         mCloudRecoBehaviour.CloudRecoEnabled = false;
@@ -84,21 +97,21 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     {
         Application.OpenURL(WebUrl);
     }
-    void OnGUI()
-    {
-        // Display current 'scanning' status
-        GUI.Box(new Rect(100, 100, 200, 50), mIsScanning ? "Scanning" : "Not scanning");
-        // Display metadata of latest detected cloud-target
-        GUI.Box(new Rect(100, 200, 200, 50), "Metadata: " + mTargetMetadata);
-        // If not scanning, show button
-        // so that user can restart cloud scanning
-        if (!mIsScanning)
-        {
-            if (GUI.Button(new Rect(100, 300, 200, 50), "Restart Scanning"))
-            {
-                // Restart TargetFinder
-                mCloudRecoBehaviour.CloudRecoEnabled = true;
-            }
-        }
-    }
+    //void OnGUI()
+    //{
+    //    // Display current 'scanning' status
+    //    GUI.Box(new Rect(100, 100, 200, 50), mIsScanning ? "Scanning" : "Not scanning");
+    //    // Display metadata of latest detected cloud-target
+    //    GUI.Box(new Rect(100, 200, 200, 50), "Metadata: " + mTargetMetadata);
+    //    // If not scanning, show button
+    //    // so that user can restart cloud scanning
+    //    if (!mIsScanning)
+    //    {
+    //        if (GUI.Button(new Rect(100, 300, 200, 50), "Restart Scanning"))
+    //        {
+    //            // Restart TargetFinder
+    //            mCloudRecoBehaviour.CloudRecoEnabled = true;
+    //        }
+    //    }
+    //}
 }
