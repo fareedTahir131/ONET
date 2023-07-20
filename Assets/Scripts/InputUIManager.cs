@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InputUIManager : MonoBehaviour
 {
@@ -53,6 +54,10 @@ public class InputUIManager : MonoBehaviour
     private void Start()
     {
         GetSelectedLanguage();
+        if (PlayerPrefs.GetInt("LoggedIn")==1)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
     public void Next()
     {
