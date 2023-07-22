@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.ptc.vuforia.engine": {
-      "version": "file:/Users/apple/Desktop/Unity Data/com.ptc.vuforia.engine",
+      "version": "file:/Users/mac/Desktop/Unity Data/com.ptc.vuforia.engine",
       "depth": 0,
       "source": "local",
       "dependencies": {
