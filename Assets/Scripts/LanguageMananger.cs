@@ -21,9 +21,36 @@ public class LanguageMananger : MonoBehaviour
         if (PlayerPrefs.GetString("SelectedLang") == "")
         {
             //Language = LanguageDropdown.options[LanguageDropdown.value].text.ToString();
-            PlayerPrefs.SetString("SelectedLang", "English");
-            Language = "English";
-            Debug.Log("Language" + Language);
+            //PlayerPrefs.SetString("SelectedLang", "English");
+            //Language = "English";
+            //Debug.Log("Language" + Language);
+
+            if (Application.systemLanguage == SystemLanguage.French)
+            {
+                PlayerPrefs.SetString("SelectedLang", "French");
+            }
+            else if (Application.systemLanguage == SystemLanguage.Italian)
+            {
+                PlayerPrefs.SetString("SelectedLang", "Italian");
+            }
+            else if (Application.systemLanguage == SystemLanguage.German)
+            {
+                PlayerPrefs.SetString("SelectedLang", "German");
+            }
+            else if (Application.systemLanguage == SystemLanguage.Spanish)
+            {
+                PlayerPrefs.SetString("SelectedLang", "Spanish");
+            }
+            else if (Application.systemLanguage == SystemLanguage.Romanian)
+            {
+                PlayerPrefs.SetString("SelectedLang", "Romanian");
+            }
+            else
+            {
+                PlayerPrefs.SetString("SelectedLang", "English");
+            }
+
+            Language = PlayerPrefs.GetString("SelectedLang");
         }
         else
         {
