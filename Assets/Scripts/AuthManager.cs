@@ -214,7 +214,7 @@ public static string BASE_URL = "http://16.171.149.101/";
             if (Login_Responce.status.message== "Logged in successfully.")
             {
                 PlayerPrefs.SetInt("LoggedIn",1);
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
         }
     }

@@ -31,7 +31,7 @@ public class LanguageMananger : MonoBehaviour
         }
         if (Language == "English")
         {
-            Debug.Log("Selected Language is "+ Language);
+            Debug.Log("Selected Language is " + Language);
             TranslateTextToEnglish();
         }
         else if (Language == "Italian")

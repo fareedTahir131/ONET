@@ -56,7 +56,7 @@ public class InputUIManager : MonoBehaviour
         GetSelectedLanguage();
         if (PlayerPrefs.GetInt("LoggedIn")==1)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
     public void Next()
