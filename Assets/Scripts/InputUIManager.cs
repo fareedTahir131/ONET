@@ -53,7 +53,7 @@ public class InputUIManager : MonoBehaviour
     }
     private void Start()
     {
-        GetSelectedLanguage();
+        //GetSelectedLanguage();
         if (PlayerPrefs.GetInt("LoggedIn")==1)
         {
             SceneManager.LoadScene(2);
