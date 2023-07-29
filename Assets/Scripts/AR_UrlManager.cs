@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class WebViewUrlManager : MonoBehaviour
+public class AR_UrlManager : MonoBehaviour
 {
+    public Vimeo.Player.VimeoPlayer VideoPlayer;
 
     UniWebView webView;
 
@@ -16,6 +16,7 @@ public class WebViewUrlManager : MonoBehaviour
         webView.Load(url);
 
         webView.OnShouldClose += (view) => {
+            VideoPlayer.IsUniWebViewOpened = false;
             webView = null;
             return true;
         };

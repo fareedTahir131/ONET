@@ -13,7 +13,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public string MetData;
 
     public Vimeo.Player.VimeoPlayer VideoPlayer;
-    public WebViewUrlManager UrlManager;
+    public AR_UrlManager UrlManager;
 
     // Register cloud reco callbacks
     void Awake()
@@ -97,6 +97,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public void OpenWebUrl()
     {
         //Application.OpenURL(WebUrl);
+        VideoPlayer.IsUniWebViewOpened = true;
+        VideoPlayer.Pause();
         UrlManager.OpenUrl(WebUrl);
     }
     //void OnGUI()

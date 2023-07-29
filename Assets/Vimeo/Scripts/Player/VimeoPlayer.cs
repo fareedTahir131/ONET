@@ -50,6 +50,8 @@ namespace Vimeo.Player
 
         public string m_file_url;
 
+        public bool IsUniWebViewOpened = false;
+
         public void Start()
         {
             IsVideoPlayed = false;
@@ -117,27 +119,30 @@ namespace Vimeo.Player
             LoadingManager.Instance.Loading(true);
             MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(Url);
             Debug.Log("Url " + Url);
-            if (!IsTargetFound)
+            if (!IsUniWebViewOpened)
             {
-                if (Url != "")
+                if (!IsTargetFound)
                 {
+                    if (Url != "")
+                    {
 
-                    vimeoVideoId = ImageMetaData.video_url;
-                    LoadAndPlayVideo();
-                    //LoadVideo(Url.text);
-                    IsTargetFound = true;
-                    IsVideoPlayed = true;
-                    Debug.Log("vimeoVideoId " + vimeoVideoId);
+                        vimeoVideoId = ImageMetaData.video_url;
+                        LoadAndPlayVideo();
+                        //LoadVideo(Url.text);
+                        IsTargetFound = true;
+                        IsVideoPlayed = true;
+                        Debug.Log("vimeoVideoId " + vimeoVideoId);
+                    }
+                    else
+                    {
+                        StartCoroutine(WaitToGetVideoUrl(ImageMetaData.video_url));
+                    }
                 }
                 else
                 {
-                    StartCoroutine(WaitToGetVideoUrl(ImageMetaData.video_url));
+                    LoadingManager.Instance.Loading(false);
+                    Play();
                 }
-            }
-            else
-            {
-                LoadingManager.Instance.Loading(false);
-                Play();
             }
 
         }
@@ -158,7 +163,7 @@ namespace Vimeo.Player
         }
         public void PlayVideoOnTargetFound()
         {
-            if (IsVideoPlayed)
+            if (IsVideoPlayed && !IsUniWebViewOpened)
             {
                 Play();
             }
