@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440681, g: 0.49333978, b: 0.57238823, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,7 +158,6 @@ RectTransform:
   - {fileID: 1400701857}
   - {fileID: 1373982578}
   - {fileID: 1402317310}
-  - {fileID: 1575987732}
   m_Father: {fileID: 428149218}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -417,6 +416,7 @@ Transform:
   m_Children:
   - {fileID: 1286653110}
   - {fileID: 1646233321}
+  - {fileID: 2103283989}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -456,6 +456,7 @@ RectTransform:
   - {fileID: 2054193052}
   - {fileID: 849293461}
   - {fileID: 183114475}
+  - {fileID: 1575987732}
   m_Father: {fileID: 1644282931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2004,12 +2005,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1498261179}
-  m_Father: {fileID: 183114475}
-  m_RootOrder: 5
+  m_Father: {fileID: 428149218}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -264.4264, y: 127.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 191}
   m_SizeDelta: {x: 417.5135, y: 133.5653}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575987733
@@ -2876,6 +2877,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2103283988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103283989}
+  - component: {fileID: 2103283990}
+  m_Layer: 0
+  m_Name: WebViewUrlManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2103283989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103283988}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 357811026}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2103283990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103283988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2113891079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,6 +2986,7 @@ MonoBehaviour:
     "website_url":"https://vimeo.com/843908865?share=copy", "target_name":"FT Testing",
     "image_link":"/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f18ff6e840143d268c2e1b390d85a70fa86f3d0f/banner%202.webp"}'
   VideoPlayer: {fileID: 114529228182197223}
+  UrlManager: {fileID: 2103283990}
 --- !u!1 &1515772079481787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,7 +3066,7 @@ MonoBehaviour:
   signInError: 0
   videoPlayerType: 0
   selectedResolution: 720
-  vimeoVideoId: https://vimeo.com/843490301?share=copy
+  vimeoVideoId: https://vimeo.com/843908865?share=copy
   muteAudio: 0
   autoPlay: 0
   startTime: 0
