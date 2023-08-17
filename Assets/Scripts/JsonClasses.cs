@@ -82,10 +82,8 @@ namespace TranslationClasses
 public class MetaDataRoot
 {
     public int id;
-    public int video_id;
     public string video_url;
+    public string Model_url;
     public string website_url;
-    public string target_name;
-    public string image_link;
 }
 

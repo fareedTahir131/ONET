@@ -1064,7 +1064,7 @@ Transform:
   m_GameObject: {fileID: 1082297374}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0.003, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.0623615}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2057473437}
@@ -2411,13 +2411,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1870134575
+--- !u!43 &1888186893
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh354274
+  m_Name: ImageTargetMesh24826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2698,7 +2698,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057473436}
-  m_Mesh: {fileID: 1870134575}
+  m_Mesh: {fileID: 1888186893}
 --- !u!23 &2057473439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3107,4 +3107,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00aecc43cb598e40b12efec445ac9f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightAxis: {x: 0, y: 0, z: 1}
+  heightAxis: {x: 0.75, y: 1, z: 1}

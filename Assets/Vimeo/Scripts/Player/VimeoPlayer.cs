@@ -94,6 +94,8 @@ namespace Vimeo.Player
                     vimeoVideoId = match.Groups[3].Value;
                     LoadVideo(int.Parse(vimeoVideoId));
                 } else {
+                    LoadingManager.Instance.Loading(false);
+                    ConsoleManager.instance.ShowMessage("Invalid Vimeo URL");
                     Debug.LogError("[Vimeo] Invalid Vimeo URL");
                 }
             }
