@@ -3054,7 +3054,7 @@ MonoBehaviour:
   vimeoSignIn: 1
   signInError: 0
   videoPlayerType: 0
-  selectedResolution: 720
+  selectedResolution: 2160
   vimeoVideoId: https://vimeo.com/843908865?share=copy
   muteAudio: 0
   autoPlay: 0
