@@ -31,51 +31,53 @@ public class VideoScreenManager : MonoBehaviour
     public void OnTarget_Found() // OnTargetFound
     {
         Debug.Log("target found");
-        //if (ResolutionChanged)
-        //{
-        //    Debug.Log("ResolutionChanged and target found");
+        if (ResolutionChanged)
+        {
 
-        //    //canvas.transform.position = _worldPosition;
-        //    //canvas.transform.rotation = _worldRotation;
-        //    //canvas.transform.localScale = _worldScale;
+            //canvas.transform.position = new Vector3(0,0,0);
+            //canvas.transform.Rotate(new Vector3(90, 0, 0));// = new Vector3(90, 0, 0);
+            //canvas.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
 
-        //    //// Change the render mode back to World Space.
-        //    //canvas.renderMode = RenderMode.WorldSpace;
-        //    //canvas.transform.localScale = _worldScale;
-        //    //canvas.transform.SetParent(AR_Camera.transform);
+            //// Change the render mode back to World Space.
+            canvas.renderMode = RenderMode.WorldSpace;
+            //canvas.transform.localScale = _worldScale;
+            //canvas.transform.SetParent(AR_Camera.transform);
 
+            RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+            canvasRect.localPosition = Vector3.zero;
+            canvasRect.sizeDelta = new Vector2(1080, 2160);
+            canvas.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            canvas.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
 
-        //    //canvas.transform.position = _worldPosition;
-        //    //canvas.transform.rotation = _worldRotation;
-        //    //canvas.transform.localScale = _worldScale;
+            //canvas.transform.position = new Vector3(0, 0, 0);
+            //canvas.transform.Rotate(new Vector3(90, 0, 0));// = new Vector3(90, 0, 0);
+            //canvas.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
 
-
-        //    //Screen.orientation = ScreenOrientation.Portrait;
-        //}
+            //var screenToWorldPosition = Camera.main.ScreenToWorldPoint(canvas.transform.position);
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
 
     }
     public void OnTarget_Lost() // OnTargetLost
     {
-        Debug.Log("target lost");
-        //if (VideoPlayer.IsVideoPlayed)
-        //{
-        //    Debug.Log("target lost");
-        //    //_worldPosition = canvas.transform.position;
-        //    //_worldRotation = canvas.transform.rotation;
-        //    //_worldScale = canvas.transform.localScale;
+        if (VideoPlayer.IsVideoPlayed)
+        {
+            _worldPosition = canvas.transform.position;
+            _worldRotation = canvas.transform.rotation;
+            _worldScale = canvas.transform.localScale;
+            canvas.enabled = true;
+            // Change the render mode to ScreenSpaceOverlay.
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-        //    //// Change the render mode to ScreenSpaceOverlay.
-        //    //canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-        //    //// Store the current position of the canvas in world space.
+            //// Store the current position of the canvas in world space.
 
 
-        //    //// Disable the canvas's world position.
-        //    //canvas.transform.position = Vector3.zero;
+            //// Disable the canvas's world position.
+            //canvas.transform.position = Vector3.zero;
 
-        //    ////Screen.orientation = ScreenOrientation.LandscapeLeft;
-        //    //ResolutionChanged = true;
-        //}
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            ResolutionChanged = true;
+        }
 
     }
     

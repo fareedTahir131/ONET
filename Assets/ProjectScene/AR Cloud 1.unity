@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 2112899166}
   canvas: {fileID: 2112899163}
-  AR_Camera: {fileID: 1823427934}
+  AR_Camera: {fileID: 2057473436}
 --- !u!1 &1373982577
 GameObject:
   m_ObjectHideFlags: 0
