@@ -45,8 +45,8 @@ namespace Vimeo.Player
         private bool playVideoAfterLoad = false;
         private bool videoControllerReady = false;
 
-        private bool IsTargetFound = false;
-        private bool IsVideoPlayed = false;
+        public bool IsTargetFound = false;
+        public bool IsVideoPlayed = false;
 
         public string m_file_url;
 
@@ -103,7 +103,7 @@ namespace Vimeo.Player
 
         public void LoadVideo(int vimeo_id)
         {
-            //LoadingManager.Instance.Loading(false);
+            LoadingManager.Instance.Loading(false);
             loadingVideoMetadata = true;
             videoControllerReady = false;
 
