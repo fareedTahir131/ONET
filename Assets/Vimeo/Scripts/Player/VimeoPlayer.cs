@@ -103,7 +103,7 @@ namespace Vimeo.Player
 
         public void LoadVideo(int vimeo_id)
         {
-            LoadingManager.Instance.Loading(false);
+            //LoadingManager.Instance.Loading(false);
             loadingVideoMetadata = true;
             videoControllerReady = false;
 
