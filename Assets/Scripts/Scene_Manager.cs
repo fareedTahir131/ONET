@@ -9,4 +9,10 @@ public class Scene_Manager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneIndex);
     }
+
+    public void ChangeOrientation(int SceneIndex)
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        SceneManager.LoadScene(SceneIndex);
+    }
 }

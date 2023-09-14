@@ -9,6 +9,11 @@ public class VideoScreenManager : MonoBehaviour
     public Canvas canvas;
     public GameObject AR_Camera;
 
+    public GameObject BG_Image;
+
+    //public Button WebLinkButton;
+    //private RectTransform buttonRectTransform;
+    //private Vector2 originalSize;
 
     private Vector3 _worldPosition;
     private Quaternion _worldRotation;
@@ -17,7 +22,10 @@ public class VideoScreenManager : MonoBehaviour
     private bool ResolutionChanged = false;
     private void Start()
     {
+        BG_Image.SetActive(false);
         ResolutionChanged = false;
+        //buttonRectTransform = GetComponent<RectTransform>();
+        //originalSize = buttonRectTransform.sizeDelta;
         //StartCoroutine(Wait());
     }
     public void ChangeScreen()
@@ -33,7 +41,7 @@ public class VideoScreenManager : MonoBehaviour
         Debug.Log("target found");
         if (ResolutionChanged)
         {
-
+            BG_Image.SetActive(false);
             //canvas.transform.position = new Vector3(0,0,0);
             //canvas.transform.Rotate(new Vector3(90, 0, 0));// = new Vector3(90, 0, 0);
             //canvas.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
@@ -55,6 +63,8 @@ public class VideoScreenManager : MonoBehaviour
 
             //var screenToWorldPosition = Camera.main.ScreenToWorldPoint(canvas.transform.position);
             Screen.orientation = ScreenOrientation.Portrait;
+
+            //buttonRectTransform.sizeDelta = originalSize;
         }
 
     }
@@ -70,13 +80,17 @@ public class VideoScreenManager : MonoBehaviour
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
             //// Store the current position of the canvas in world space.
-
+            BG_Image.SetActive(true);
 
             //// Disable the canvas's world position.
             //canvas.transform.position = Vector3.zero;
 
             Screen.orientation = ScreenOrientation.LandscapeLeft;
             ResolutionChanged = true;
+
+            //buttonRectTransform.sizeDelta = originalSize / 1.5f;
+
+            
         }
 
     }
