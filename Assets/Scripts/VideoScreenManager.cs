@@ -11,6 +11,8 @@ public class VideoScreenManager : MonoBehaviour
 
     public GameObject BG_Image;
 
+    public GameObject PlayPauseImage;
+
     //public Button WebLinkButton;
     //private RectTransform buttonRectTransform;
     //private Vector2 originalSize;
@@ -23,6 +25,7 @@ public class VideoScreenManager : MonoBehaviour
     private void Start()
     {
         BG_Image.SetActive(false);
+        PlayPauseImage.SetActive(false);
         ResolutionChanged = false;
         //buttonRectTransform = GetComponent<RectTransform>();
         //originalSize = buttonRectTransform.sizeDelta;
@@ -94,7 +97,11 @@ public class VideoScreenManager : MonoBehaviour
         }
 
     }
-    
+    public void PlayPauseImageManager()
+    {
+        PlayPauseImage.SetActive(!PlayPauseImage.activeSelf);
+
+    }
     //IEnumerator Wait()
     //{
     //    yield return new WaitForSeconds(8);
