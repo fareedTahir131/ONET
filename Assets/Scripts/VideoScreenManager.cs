@@ -92,8 +92,10 @@ public class VideoScreenManager : MonoBehaviour
             ResolutionChanged = true;
 
             //buttonRectTransform.sizeDelta = originalSize / 1.5f;
+            //Debug.Log("Width "+VideoPlayer.GetWidth());
+            //Debug.Log("Height "+VideoPlayer.GetHeight());
 
-            
+
         }
 
     }

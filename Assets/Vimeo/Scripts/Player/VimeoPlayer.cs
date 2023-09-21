@@ -115,6 +115,8 @@ namespace Vimeo.Player
 
             api.OnRequestComplete += VideoMetadataLoad;
             api.GetVideoFileUrlByVimeoId(vimeo_id);
+
+            //SetScreenReso();
         }
         public void SetVideoLinkAndPlay(string Url)
         {
@@ -158,6 +160,14 @@ namespace Vimeo.Player
                 //LoadVideo(url);
                 IsTargetFound = true;
             }
+        }
+        private void SetScreenReso()
+        {
+            //RectTransform canvasRect = gameObject.GetComponent<Canvas>().GetComponent<RectTransform>();
+            //canvasRect.sizeDelta = new Vector2(GetWidth(), GetHeight());
+
+            Debug.Log("Width " + GetWidth());
+            Debug.Log("Height " + GetHeight());
         }
         public void TargetFound()
         {

@@ -494,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 388.14285, y: -130.2857}
-  m_SizeDelta: {x: 776.2858, y: 220.6947}
+  m_AnchoredPosition: {x: 457.81107, y: -130.2857}
+  m_SizeDelta: {x: 915.6223, y: 220.6947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227132562
 MonoBehaviour:
@@ -523,17 +523,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 26
+    m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Inquadrando con il tuo smartphone cartelloni pubblicitari,\nbiglietti
-    da visita, flyer e gadget potrai visualizzare fantastici Video\ne ricostruzioni
-    3d in Realt\xE0 Aumentata e trovare il meglio per\nil tuo shopping, ma anche
-    ristoranti, centri commerciali,\npalestre e molto altro ancora!"
+  m_Text: "Esplora il mondo con la Realt\xE0 Aumentata con una nuova prospettiva!"
 --- !u!222 &227132563
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -684,14 +681,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 9
-    m_MaxSize: 98
+    m_MaxSize: 113
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INOVAZIONE
+  m_Text: RIVOLUZIONE
 --- !u!222 &284146390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -840,7 +837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cc664bc92d14042999a5af2270058d73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60bd77380220f48c2bd233d3b9bf2e61, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2588,14 +2585,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 9
-    m_MaxSize: 98
+    m_MaxSize: 113
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E TECHNOLOGIA
+  m_Text: TECNOLOGICA
 --- !u!222 &1558475674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3119,54 +3116,34 @@ MonoBehaviour:
     - {fileID: 461851048}
     language:
       English:
-      - INNOVATION
-      - AND TECHNOLOGY
-      - By framing billboards with your smartphone, business cards, flyers and gadgets
-        you can view fantastic videos and 3d reconstructions in Augmented Reality
-        and find the best for your shopping, but also restaurants, malls, gyms and
-        more!
+      - REVOLUTION
+      - TECHNOLOGICAL
+      - Explore the world with Augmented Reality with a new perspective!
       - START
       Italian:
-      - INNOVAZIONE
-      - E TECNOLOGIA
-      - "Inquadrando cartelloni pubblicitari con il tuo smartphone, biglietti da
-        visita, volantini e gadget, potrai visualizzare fantastici video e ricostruzioni
-        3D in Realt\xE0 Aumentata e trovare il meglio per i tuoi acquisti, ma anche
-        ristoranti, centri commerciali, palestre e non solo!"
+      - RIVOLUZIONE
+      - TECNOLOGICA
+      - "Esplora il mondo con la Realt\xE0 Aumentata con una nuova prospettiva!"
       - INIZIA
       German:
-      - INNOVATION
-      - UND TECHNOLOGIE
-      - "Indem Sie Werbetafeln mit Ihrem Smartphone einrahmen, Visitenkarten, Flyer
-        und Gadgets k\xF6nnen Sie fantastische Videos ansehen und 3D-Rekonstruktionen
-        in Augmented Reality und finden Sie das Beste daf\xFCr Ihre Eink\xE4ufe,
-        aber auch Restaurants, Einkaufszentren, Fitnessstudios und mehr!"
+      - REVOLUTION
+      - TECHNOLOGISCH
+      - Entdecken Sie die Welt mit Augmented Reality aus einer neuen Perspektive!
       - START
       French:
-      - INNOVATION
-      - ET LA TECHNOLOGIE
-      - "En encadrant des panneaux publicitaires avec votre smartphone, cartes de
-        visite, d\xE9pliants et gadgets, vous pouvez visionner des vid\xE9os fantastiques
-        et reconstructions 3d en R\xE9alit\xE9 Augment\xE9e et trouvez le meilleur
-        pour vos courses, mais aussi restaurants, centres commerciaux, gymnases et
-        plus encore!"
-      - Commencer
+      - "R\xC9VOLUTION"
+      - TECHNOLOGIQUE
+      - "Explorez le monde avec la r\xE9alit\xE9 augment\xE9e avec une nouvelle perspective\_!"
+      - COMMENCER
       Spanish:
-      - "INNOVACI\xD3N"
-      - "Y TECNOLOG\xCDA"
-      - "Al enmarcar vallas publicitarias con su tel\xE9fono inteligente, tarjetas
-        de visita, volantes y gadgets puedes ver videos fant\xE1sticos y reconstrucciones
-        3d en Realidad Aumentada y encuentra lo mejor para tus compras, pero tambi\xE9n
-        restaurantes, centros comerciales, gimnasios y mas!"
-      - Comenzar
+      - "REVOLUCI\xD3N"
+      - "TECNOL\xD3GICO"
+      - "\xA1Explora el mundo con Realidad Aumentada con una nueva perspectiva!"
+      - COMENZAR
       Romanian:
-      - "INOVA\u0162IE"
-      - SI TEHNOLOGIE
-      - "\xCEncadr\xE2nd panouri cu smartphone-ul dvs., c\u0103r\u021Bi de vizit\u0103,
-        flutura\u0219i \u0219i gadgeturi pute\u021Bi viziona videoclipuri fantastice
-        \u0219i reconstruc\u021Bii 3d \xEEn Realitatea Augmentat\u0103 \u0219i g\u0103si\u021Bi
-        cel mai bun pentru cump\u0103r\u0103turile dvs., dar \u0219i restaurantele,
-        mall-urile, s\u0103li de sport \u0219i multe altele!"
+      - "REVOLU\u0162IE"
+      - TEHNOLOGIC
+      - "Exploreaz\u0103 lumea cu Realitatea Augmentat\u0103 cu o nou\u0103 perspectiv\u0103!"
       - START
 --- !u!1 &2076181170
 GameObject:
