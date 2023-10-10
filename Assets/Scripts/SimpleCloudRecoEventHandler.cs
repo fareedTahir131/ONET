@@ -10,7 +10,9 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     private string WebUrl = "";
     public ImageTargetBehaviour ImageTargetTemplate;
     public LoadModelFromURLSample ModelLoader;
+    public VideoScreenManager ScreenManager;
 
+    public GameObject AR_Loading;
     public GameObject VideoObject;
     public GameObject WebsiteButton;
     public string MetData;
@@ -18,6 +20,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public Vimeo.Player.VimeoPlayer VideoPlayer;
     public AR_UrlManager UrlManager;
 
+    private bool ModelDataFound = false;
     // Register cloud reco callbacks
     void Awake()
     {
@@ -27,6 +30,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         mCloudRecoBehaviour.RegisterOnUpdateErrorEventHandler(OnUpdateError);
         mCloudRecoBehaviour.RegisterOnStateChangedEventHandler(OnStateChanged);
         mCloudRecoBehaviour.RegisterOnNewSearchResultEventHandler(OnNewSearchResult);
+
+        ModelDataFound = false;
     }
     //Unregister cloud reco callbacks when the handler is destroyed
     void OnDestroy()
@@ -70,12 +75,16 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         if (ImageMetaData.model_image_link=="" || ImageMetaData.model_image_link == null)
         {
+            AR_Loading.SetActive(false);
             VideoObject.SetActive(true);
             VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
         }
         else
         {
+            AR_Loading.SetActive(true);
             VideoObject.SetActive(false);
+            ModelDataFound = true;
+            //ModelLoader.ModelUrl = ImageMetaData.model_image_link;
             ModelLoader.LoadModel();
         }
         try
@@ -108,10 +117,26 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     }
     public void OpenWebUrl()
     {
-        //Application.OpenURL(WebUrl);
-        VideoPlayer.IsUniWebViewOpened = true;
-        VideoPlayer.Pause();
-        UrlManager.OpenUrl(WebUrl);
+        if (!ModelDataFound)
+        {
+            //Application.OpenURL(WebUrl);
+            VideoPlayer.IsUniWebViewOpened = true;
+            VideoPlayer.Pause();
+            UrlManager.OpenUrl(WebUrl);
+        }
+        else
+        {
+            VideoPlayer.IsUniWebViewOpened = true;
+            UrlManager.OpenUrl(WebUrl);
+        }
+        
+    }
+    public void VideoPlayPuaseManager()
+    {
+        if (!ModelDataFound)
+        {
+            ScreenManager.PlayPauseImageManager();
+        }
     }
     //void OnGUI()
     //{

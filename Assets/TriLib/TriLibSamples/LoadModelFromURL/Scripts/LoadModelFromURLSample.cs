@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+
 namespace TriLibCore.Samples
 {
     /// <summary>
@@ -7,8 +9,15 @@ namespace TriLibCore.Samples
     public class LoadModelFromURLSample : MonoBehaviour
     {
         public GameObject ModelParent;
+        public GameObject AR_Loading;
         public string ModelUrl;
         public string ModelExtension;
+
+        private bool IsModelLoading = false;
+        private bool IsModelTargetLost = false;
+        private bool ModelLoaded = false;
+
+        private UnityWebRequest webRequest;
         /// <summary>
         /// Creates the AssetLoaderOptions instance, configures the Web Request, and downloads the Model.
         /// </summary>
@@ -17,6 +26,9 @@ namespace TriLibCore.Samples
         /// </remarks>
         private void Start()
         {
+            IsModelLoading = false;
+            IsModelTargetLost = false;
+            ModelLoaded = false;
             //var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
             //var webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
             ////var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
@@ -27,13 +39,15 @@ namespace TriLibCore.Samples
         }
         public void LoadModel()
         {
+            IsModelLoading = true;
             var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
-            var webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
+            webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
             //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
             //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/95zui2czez94eifo/____.glb");
             //var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
             AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions, null, ModelExtension, false);
             //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
+            //webRequest.
         }
         /// <summary>
         /// Called when any error occurs.
@@ -71,7 +85,25 @@ namespace TriLibCore.Samples
 
             // Set the position and scale of the object
             myObject.transform.localPosition = new Vector3(0f, 0f, 0f); // Set the local position
-            myObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            myObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            AR_Loading.SetActive(false);
+            ModelLoaded = true;
+        }
+        public void ModelTargetFound()
+        {
+            if (IsModelTargetLost && !ModelLoaded)
+            {
+                webRequest.Abort();
+                LoadModel();
+            }
+        }
+        public void ModelTargetLost()
+        {
+            if (IsModelLoading)
+            {
+                IsModelTargetLost = true;
+                webRequest.Abort();
+            }
         }
         /// <summary>
         /// Called when the Model Meshes and hierarchy are loaded.
