@@ -6,6 +6,9 @@ namespace TriLibCore.Samples
     /// </summary>
     public class LoadModelFromURLSample : MonoBehaviour
     {
+        public GameObject ModelParent;
+        public string ModelUrl;
+        public string ModelExtension;
         /// <summary>
         /// Creates the AssetLoaderOptions instance, configures the Web Request, and downloads the Model.
         /// </summary>
@@ -14,11 +17,24 @@ namespace TriLibCore.Samples
         /// </remarks>
         private void Start()
         {
-            var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
-            var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
-            AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions);
+            //var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
+            //var webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
+            ////var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
+            ////var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/95zui2czez94eifo/____.glb");
+            ////var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
+            //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, ModelExtension, false);
+            ////AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
         }
-
+        public void LoadModel()
+        {
+            var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
+            var webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
+            //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
+            //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/95zui2czez94eifo/____.glb");
+            //var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
+            AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions, null, ModelExtension, false);
+            //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
+        }
         /// <summary>
         /// Called when any error occurs.
         /// </summary>
@@ -46,8 +62,17 @@ namespace TriLibCore.Samples
         private void OnMaterialsLoad(AssetLoaderContext assetLoaderContext)
         {
             Debug.Log("Materials loaded. Model fully loaded.");
+            SetModel();
         }
+        private void SetModel()
+        {
+            GameObject myObject = GameObject.Find("1");
+            myObject.transform.parent = ModelParent.transform;
 
+            // Set the position and scale of the object
+            myObject.transform.localPosition = new Vector3(0f, 0f, 0f); // Set the local position
+            myObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
         /// <summary>
         /// Called when the Model Meshes and hierarchy are loaded.
         /// </summary>

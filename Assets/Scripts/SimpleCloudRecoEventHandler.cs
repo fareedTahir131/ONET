@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TriLibCore.Samples;
+using UnityEngine;
 using Vuforia;
 
 public class SimpleCloudRecoEventHandler : MonoBehaviour
@@ -8,7 +9,9 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     private string mTargetMetadata = "";
     private string WebUrl = "";
     public ImageTargetBehaviour ImageTargetTemplate;
+    public LoadModelFromURLSample ModelLoader;
 
+    public GameObject VideoObject;
     public GameObject WebsiteButton;
     public string MetData;
 
@@ -64,11 +67,20 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         Debug.Log("mTargetMetadata " + mTargetMetadata);
-        
-        VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+        if (ImageMetaData.model_image_link=="" || ImageMetaData.model_image_link == null)
+        {
+            VideoObject.SetActive(true);
+            VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        }
+        else
+        {
+            VideoObject.SetActive(false);
+            ModelLoader.LoadModel();
+        }
         try
         {
-            MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+            //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
             if (ImageMetaData.website_url != "" || ImageMetaData.website_url != null)
             {
                 WebUrl = ImageMetaData.website_url;
