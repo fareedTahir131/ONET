@@ -3970,7 +3970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelParent: {fileID: 2057473436}
   AR_Loading: {fileID: 267824248}
-  ModelUrl: https://filebin.net/8skatrcwgypmky6s/craneo.OBJ
+  ModelUrl: 
   ModelExtension: obj
 --- !u!1 &1552360854
 GameObject:

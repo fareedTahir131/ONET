@@ -88,11 +88,23 @@ public class MetaDataRoot
     public int id;
     public string target_name;
     public object uploaded_by;
-    public object video_id;
+    public int video_id;
     public string video_url;
     public string image_link;
     public string model_image_link;
     public string texture_link;
     public string website_url;
 }
-
+[Serializable]
+public class API_Root
+{
+    public bool success;
+    public int id;
+    public string target_name;
+    public int video_id;
+    public string video_url;
+    public string image_link;
+    public string model_image_link;
+    public string texture_link;
+    public string website_url;
+}

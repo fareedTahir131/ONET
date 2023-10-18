@@ -1,5 +1,7 @@
-﻿using TriLibCore.Samples;
+﻿using System.Collections;
+using TriLibCore.Samples;
 using UnityEngine;
+using UnityEngine.Networking;
 using Vuforia;
 
 public class SimpleCloudRecoEventHandler : MonoBehaviour
@@ -20,6 +22,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public Vimeo.Player.VimeoPlayer VideoPlayer;
     public AR_UrlManager UrlManager;
 
+    private API_Root API_Data;
     private bool ModelDataFound = false;
     // Register cloud reco callbacks
     void Awake()
@@ -73,37 +76,9 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         Debug.Log("mTargetMetadata " + mTargetMetadata);
         MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
-        if (ImageMetaData.model_image_link=="" || ImageMetaData.model_image_link == null)
-        {
-            AR_Loading.SetActive(false);
-            VideoObject.SetActive(true);
-            VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
-        }
-        else
-        {
-            AR_Loading.SetActive(true);
-            VideoObject.SetActive(false);
-            ModelDataFound = true;
-            //ModelLoader.ModelUrl = ImageMetaData.model_image_link;
-            ModelLoader.LoadModel();
-        }
-        try
-        {
-            //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
-            if (ImageMetaData.website_url != "" || ImageMetaData.website_url != null)
-            {
-                WebUrl = ImageMetaData.website_url;
-                WebsiteButton.SetActive(true);
-            }
-            else
-            {
-                WebsiteButton.SetActive(false);
-            }
-        }
-        catch (System.Exception ex)
-        {
-            Debug.Log("ex "+ ex);
-        }
+        Debug.Log("Image ID "+ ImageMetaData.id);
+        StartCoroutine(GetData(ImageMetaData.id));
+        
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
         mCloudRecoBehaviour.CloudRecoEnabled = false;
@@ -136,6 +111,78 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         if (!ModelDataFound)
         {
             ScreenManager.PlayPauseImageManager();
+        }
+    }
+    public IEnumerator GetData(int ID)
+    {
+        string requestName = "http://16.171.149.101/projects/show_project?project_id=" + ID;
+
+        using (UnityWebRequest www = UnityWebRequest.Get(requestName))
+        {
+            //www.SetRequestHeader("Authorization", "Bearer " + Auth0Manager.AccessToken);
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                //ConsoleManager.instance.ShowMessage("Network Error!");
+                Debug.Log(www.error);
+            }
+            else if (www.isHttpError)
+            {
+                if (www.responseCode==422)
+                {
+                    Debug.Log("Invalid Image "+www.error);
+                }
+            }
+            else
+            {
+                API_Root API_Data = JsonUtility.FromJson<API_Root>(www.downloadHandler.text);
+                Debug.Log("responce data "+www.downloadHandler.text);
+                if (!API_Data.success)
+                {
+                    Debug.Log("Target data error!");
+                    //ConsoleManager.instance.ShowMessage("Target data error!");
+                }
+                else
+                {
+                    PerformOperation(API_Data);
+                }
+                LoadingManager.Instance.Loading(false);
+            }
+        }
+    }
+    private void PerformOperation(API_Root API_Data)
+    {
+        if (API_Data.model_image_link == "" || API_Data.model_image_link == null)
+        {
+            AR_Loading.SetActive(false);
+            VideoObject.SetActive(true);
+            VideoPlayer.SetVideoLinkAndPlay(mTargetMetadata);
+        }
+        else
+        {
+            AR_Loading.SetActive(true);
+            VideoObject.SetActive(false);
+            ModelDataFound = true;
+            ModelLoader.ModelUrl = API_Data.model_image_link;
+            ModelLoader.LoadModel();
+        }
+        try
+        {
+            //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+            if (API_Data.website_url != "" || API_Data.website_url != null)
+            {
+                WebUrl = API_Data.website_url;
+                WebsiteButton.SetActive(true);
+            }
+            else
+            {
+                WebsiteButton.SetActive(false);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log("ex " + ex);
         }
     }
     //void OnGUI()

@@ -36,6 +36,7 @@ namespace TriLibCore.Samples
             ////var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
             //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, ModelExtension, false);
             ////AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
+            LoadModel();
         }
         public void LoadModel()
         {
