@@ -13,9 +13,7 @@ namespace TriLibCore.Samples
         public string ModelUrl;
         public string ModelExtension;
 
-        private bool IsModelLoading = false;
-        private bool IsModelTargetLost = false;
-        private bool ModelLoaded = false;
+        
 
         private UnityWebRequest webRequest;
         /// <summary>
@@ -26,9 +24,7 @@ namespace TriLibCore.Samples
         /// </remarks>
         private void Start()
         {
-            IsModelLoading = false;
-            IsModelTargetLost = false;
-            ModelLoaded = false;
+            
             //var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
             //var webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
             ////var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
@@ -40,7 +36,6 @@ namespace TriLibCore.Samples
         }
         public void LoadModel()
         {
-            IsModelLoading = true;
             var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
             webRequest = AssetDownloader.CreateWebRequest(ModelUrl);
             //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
@@ -88,24 +83,24 @@ namespace TriLibCore.Samples
             myObject.transform.localPosition = new Vector3(0f, 0f, 0f); // Set the local position
             myObject.transform.localScale = new Vector3(1f, 1f, 1f);
             AR_Loading.SetActive(false);
-            ModelLoaded = true;
+            //ModelLoaded = true;
         }
-        public void ModelTargetFound()
-        {
-            if (IsModelTargetLost && !ModelLoaded)
-            {
-                webRequest.Abort();
-                LoadModel();
-            }
-        }
-        public void ModelTargetLost()
-        {
-            if (IsModelLoading)
-            {
-                IsModelTargetLost = true;
-                webRequest.Abort();
-            }
-        }
+        //public void ModelTargetFound()
+        //{
+        //    if (IsModelTargetLost && !ModelLoaded)
+        //    {
+        //        webRequest.Abort();
+        //        LoadModel();
+        //    }
+        //}
+        //public void ModelTargetLost()
+        //{
+        //    if (IsModelLoading)
+        //    {
+        //        IsModelTargetLost = true;
+        //        webRequest.Abort();
+        //    }
+        //}
         /// <summary>
         /// Called when the Model Meshes and hierarchy are loaded.
         /// </summary>

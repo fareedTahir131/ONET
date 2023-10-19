@@ -2,6 +2,7 @@
 using TriLibCore.General;
 using UnityEngine;
 using System.IO;
+using System.Net;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,8 +13,16 @@ namespace TriLibCore.Samples
     /// </summary>
     public class LoadModelFromFileSample : MonoBehaviour
     {
+        public GameObject ModelParent;
+        public GameObject AR_Loading;
+
         public GameObject referenceModel;
         private string ModelTextureUrl;
+
+        private bool IsModelLoading = false;
+        private bool IsModelTargetLost = false;
+        public bool ModelLoaded = false;
+
 #if UNITY_EDITOR
         /// <summary>
         /// The Model asset used to locate the filename when running in Unity Editor.
@@ -50,6 +59,9 @@ namespace TriLibCore.Samples
         /// </remarks>
         private void Start()
         {
+            IsModelLoading = false;
+            IsModelTargetLost = false;
+            ModelLoaded = false;
             //var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
             //AssetLoader.LoadModelFromFile(ModelPath, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions);
         }
@@ -121,6 +133,22 @@ namespace TriLibCore.Samples
                     {
                         renderer.material.mainTexture = texture;
                         SizeManager(model);
+
+                        ParentModel.transform.parent = ModelParent.transform;
+
+                        // Set the position and scale of the object
+                        ParentModel.transform.localPosition = new Vector3(0f, 0f, 0f); // Set the local position
+                        ParentModel.transform.localScale = new Vector3(1f, 1f, 1f);
+                        AR_Loading.SetActive(false);
+                        ModelLoaded = true;
+
+                        Vector3 currentRotation = ParentModel.transform.rotation.eulerAngles;
+
+                        // Set the X and Z rotation to -90 while preserving the Y rotation
+                        Vector3 newRotation = new Vector3(-90f, 0, -90f);
+
+                        // Apply the new rotation to the child object
+                        ParentModel.transform.rotation = Quaternion.Euler(newRotation);
                     }
                     else
                     {
@@ -137,7 +165,20 @@ namespace TriLibCore.Samples
                 Debug.LogError("Image file not found at path: " + ModelTextureUrl);
             }
         }
-
+        //public void ModelTargetFound()
+        //{
+        //    if (IsModelTargetLost && !ModelLoaded)
+        //    {
+        //        LoadModel();
+        //    }
+        //}
+        //public void ModelTargetLost()
+        //{
+        //    if (IsModelLoading)
+        //    {
+        //        IsModelTargetLost = true;
+        //    }
+        //}
         void SizeManager(GameObject Model)
         {
             // Get the size of the reference model
@@ -159,6 +200,7 @@ namespace TriLibCore.Samples
             );
             float SmallScale = FindSmallestValue(Model.transform.localScale.x, Model.transform.localScale.y, Model.transform.localScale.z);
             Model.transform.localScale = new Vector3(SmallScale, SmallScale, SmallScale);
+
         }
         Vector3 GetObjectSize(GameObject obj)
         {
@@ -179,5 +221,6 @@ namespace TriLibCore.Samples
             float smallest = Mathf.Min(x, Mathf.Min(y, z));
             return smallest;
         }
+
     }
 }

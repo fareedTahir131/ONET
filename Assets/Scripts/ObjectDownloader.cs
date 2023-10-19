@@ -12,13 +12,59 @@ public class ObjectDownloader : MonoBehaviour
     public LoadModelFromFileSample loadModelFromFileSample;
     private string localFilePath;
 
+    private bool IsModelDownloading = false;
+    private bool IsModelDownloaded = false;
+    private bool IsModelLinkFound = false;
+
+
+    private string Model_Url = "";
+    private string Texture_Url = "";
+
+    private string Model_Path = "";
+    private string Texture_Path = "";
+
     private void Start()
     {
-        DownloadModel(objURL, imageUrl);
+        IsModelDownloaded = false;
+        IsModelDownloading = false;
+        IsModelLinkFound = false;
+        //DownloadModel(objURL, imageUrl);
     }
     public void DownloadModel(string ModelUrl, string TextureUrl)
     {
+        Model_Url = ModelUrl;
+        Texture_Url = TextureUrl;
+        IsModelLinkFound = true;
+        IsModelDownloading = true;
         StartCoroutine(ModelDownloader(ModelUrl, TextureUrl));
+    }
+    public void ModelTargetFound()
+    {
+        if (IsModelLinkFound)
+        {
+            if (loadModelFromFileSample.ModelLoaded)
+            {
+                Debug.Log("Only show the model");
+            }
+            else if (IsModelDownloaded)
+            {
+                loadModelFromFileSample.LoadModelFromPath(Model_Path, Texture_Path);
+            }
+            else
+            {
+                StopCoroutine(ModelDownloader(Model_Url, Texture_Url));
+            }
+        }
+    }
+    public void ModelTargetLost()
+    {
+        if (IsModelLinkFound)
+        {
+            if (IsModelDownloading)
+            {
+                StopCoroutine(ModelDownloader(Model_Url, Texture_Url));
+            }
+        }
     }
     IEnumerator ModelDownloader(string ModelUrl, string TextureUrl)
     {
@@ -96,7 +142,10 @@ public class ObjectDownloader : MonoBehaviour
                 File.WriteAllBytes(localFilePath, bytes);
 
                 Debug.Log("Image downloaded and saved to: " + localFilePath);
-
+                IsModelDownloading = false;
+                IsModelDownloaded = true;
+                Model_Path = ModelPath;
+                Texture_Path = localFilePath;
                 loadModelFromFileSample.LoadModelFromPath(ModelPath, localFilePath);
             }
         }
