@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a0c5b52c8d913478268c17dfa4bf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referenceModel: {fileID: 8420115032299515806, guid: 15faacedc7b404faaa61ab6f9c241320, type: 3}
   ModelAsset: {fileID: 0}
 --- !u!1 &1146522009
 GameObject:
@@ -324,8 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e79c1a7285ae469badf52387b2fb77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objURL: https://onet-bucket.s3.us-west-1.amazonaws.com/8j8cpggegc4znm7a1ejyqw7nahrl?response-content-disposition=attachment%3B%20filename%3D%2212228_Dog_v1_L2.obj%22%3B%20filename%2A%3DUTF-8%27%2712228_Dog_v1_L2.obj&response-content-type=model%2Fobj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYY2LLNHK3MIYNEE%2F20231018%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20231018T041417Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=a9b870cfc5ed3ee7b3bce2d76189502c7de56048bbcb7c269d88e31de68a62b2
-  imageUrl: https://onet-bucket.s3.us-west-1.amazonaws.com/w4ounc17rj7fhkipykk7xthlb5cu?response-content-disposition=inline%3B%20filename%3D%22Dog_diffuse.jpeg%22%3B%20filename%2A%3DUTF-8%27%27Dog_diffuse.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYY2LLNHK3MIYNEE%2F20231018%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20231018T041417Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=330f8ae39f45601bbbf84beaf5242eb6eb4b46bd079f0db9e859f53d318b93d0
+  objURL: https://onet-bucket.s3.us-west-1.amazonaws.com/8j8cpggegc4znm7a1ejyqw7nahrl?response-content-disposition=attachment%3B%20filename%3D%2212228_Dog_v1_L2.obj%22%3B%20filename%2A%3DUTF-8%27%2712228_Dog_v1_L2.obj&response-content-type=model%2Fobj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYY2LLNHK3MIYNEE%2F20231019%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20231019T034653Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b1790715924b55886e4dd904fb92c597ade0cda6b2000fdd525a543bfdd71c37
+  imageUrl: https://onet-bucket.s3.us-west-1.amazonaws.com/w4ounc17rj7fhkipykk7xthlb5cu?response-content-disposition=inline%3B%20filename%3D%22Dog_diffuse.jpeg%22%3B%20filename%2A%3DUTF-8%27%27Dog_diffuse.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYY2LLNHK3MIYNEE%2F20231019%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20231019T034653Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=93d901a48e17e04a85c1801952d86eb617a0b0179a19576260d5b0483140a8d6
   loadModelFromFileSample: {fileID: 1016237995}
 --- !u!4 &1192706355
 Transform:

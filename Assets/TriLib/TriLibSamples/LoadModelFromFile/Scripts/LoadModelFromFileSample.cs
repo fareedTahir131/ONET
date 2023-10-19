@@ -12,6 +12,7 @@ namespace TriLibCore.Samples
     /// </summary>
     public class LoadModelFromFileSample : MonoBehaviour
     {
+        public GameObject referenceModel;
         private string ModelTextureUrl;
 #if UNITY_EDITOR
         /// <summary>
@@ -119,6 +120,7 @@ namespace TriLibCore.Samples
                     if (renderer != null)
                     {
                         renderer.material.mainTexture = texture;
+                        SizeManager(model);
                     }
                     else
                     {
@@ -134,6 +136,48 @@ namespace TriLibCore.Samples
             {
                 Debug.LogError("Image file not found at path: " + ModelTextureUrl);
             }
+        }
+
+        void SizeManager(GameObject Model)
+        {
+            // Get the size of the reference model
+            Vector3 referenceSize = GetObjectSize(referenceModel);
+
+            // Get the size of the current object
+            Vector3 objSize = GetObjectSize(Model);
+
+            // Calculate the scale factors for each dimension
+            float xScaleFactor = referenceSize.x / objSize.x;
+            float yScaleFactor = referenceSize.y / objSize.y;
+            float zScaleFactor = referenceSize.z / objSize.z;
+
+            // Apply the scale factors uniformly to x, y, and z dimensions
+            Model.transform.localScale = new Vector3(
+                Model.transform.localScale.x * xScaleFactor,
+                Model.transform.localScale.y * yScaleFactor,
+                Model.transform.localScale.z * zScaleFactor
+            );
+            float SmallScale = FindSmallestValue(Model.transform.localScale.x, Model.transform.localScale.y, Model.transform.localScale.z);
+            Model.transform.localScale = new Vector3(SmallScale, SmallScale, SmallScale);
+        }
+        Vector3 GetObjectSize(GameObject obj)
+        {
+            Renderer renderer = obj.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                return renderer.bounds.size;
+            }
+            else
+            {
+                // If there is no Renderer component, return the local scale
+                return obj.transform.localScale;
+            }
+        }
+        float FindSmallestValue(float x, float y, float z)
+        {
+            // Compare a, b, and c to find the smallest value
+            float smallest = Mathf.Min(x, Mathf.Min(y, z));
+            return smallest;
         }
     }
 }
