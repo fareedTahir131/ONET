@@ -172,7 +172,7 @@ PlayerSettings:
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
-  APKExpansionFiles: 1
+  APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask: 4054
@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/mac/Desktop/Unity Data/KeyStore/OnetKeystore.keystore
+  AndroidKeystoreName: /Users/fareedtahir/Desktop/Unity Data/KeyStore/OnetKeystore.keystore
   AndroidKeyaliasName: onet@2023
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

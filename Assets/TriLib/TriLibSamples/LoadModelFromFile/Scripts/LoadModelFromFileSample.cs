@@ -145,7 +145,7 @@ namespace TriLibCore.Samples
                         Vector3 currentRotation = ParentModel.transform.rotation.eulerAngles;
 
                         // Set the X and Z rotation to -90 while preserving the Y rotation
-                        Vector3 newRotation = new Vector3(-90f, 0, -90f);
+                        Vector3 newRotation = new Vector3(-180f, 0, -90f);
 
                         // Apply the new rotation to the child object
                         ParentModel.transform.rotation = Quaternion.Euler(newRotation);
