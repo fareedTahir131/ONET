@@ -5,11 +5,14 @@ using UnityEngine;
 public class AR_UrlManager : MonoBehaviour
 {
     public Vimeo.Player.VimeoPlayer VideoPlayer;
+    public VideoScreenManager VideoScreenManager;
 
     UniWebView webView;
 
     public void OpenUrl(string url)
     {
+        VideoScreenManager.PlayPauseImage.SetActive(true);
+        VideoScreenManager.IsUrlOpened = true;
         webView = gameObject.AddComponent<UniWebView>();
         webView.Frame = new Rect(0, 0, Screen.width, Screen.height);
         LoadingManager.Instance.Loading(true);
@@ -17,6 +20,8 @@ public class AR_UrlManager : MonoBehaviour
 
         webView.OnShouldClose += (view) => {
             VideoPlayer.IsUniWebViewOpened = false;
+            VideoScreenManager.IsUrlOpened = false;
+            VideoScreenManager.PlayPauseImage.SetActive(true);
             webView = null;
             return true;
         };

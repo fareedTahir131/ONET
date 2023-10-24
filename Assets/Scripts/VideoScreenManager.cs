@@ -12,7 +12,7 @@ public class VideoScreenManager : MonoBehaviour
     public GameObject BG_Image;
 
     public GameObject PlayPauseImage;
-
+    public bool IsUrlOpened = false;
     //public Button WebLinkButton;
     //private RectTransform buttonRectTransform;
     //private Vector2 originalSize;
@@ -24,6 +24,7 @@ public class VideoScreenManager : MonoBehaviour
     private bool ResolutionChanged = false;
     private void Start()
     {
+        IsUrlOpened = false;
         BG_Image.SetActive(false);
         PlayPauseImage.SetActive(false);
         ResolutionChanged = false;
@@ -42,7 +43,7 @@ public class VideoScreenManager : MonoBehaviour
     public void OnTarget_Found() // OnTargetFound
     {
         Debug.Log("target found");
-        if (ResolutionChanged)
+        if (ResolutionChanged && !IsUrlOpened)
         {
             BG_Image.SetActive(false);
             //canvas.transform.position = new Vector3(0,0,0);
@@ -73,7 +74,7 @@ public class VideoScreenManager : MonoBehaviour
     }
     public void OnTarget_Lost() // OnTargetLost
     {
-        if (VideoPlayer.IsVideoPlayed)
+        if (VideoPlayer.IsVideoPlayed && !IsUrlOpened)
         {
             _worldPosition = canvas.transform.position;
             _worldRotation = canvas.transform.rotation;

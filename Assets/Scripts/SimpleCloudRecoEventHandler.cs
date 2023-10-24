@@ -24,6 +24,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public Vimeo.Player.VimeoPlayer VideoPlayer;
     public AR_UrlManager UrlManager;
 
+    private MetaDataRoot ImageMetaData;
     private API_Root API_Data;
     private bool ModelDataFound = false;
     // Register cloud reco callbacks
@@ -77,7 +78,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         Debug.Log("mTargetMetadata " + mTargetMetadata);
-        MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
+        ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         Debug.Log("Image ID "+ ImageMetaData.id);
         StartCoroutine(GetData(ImageMetaData.id));
         
@@ -173,9 +174,10 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         try
         {
             //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
-            if (API_Data.website_url != "" || API_Data.website_url != null)
+            if (ImageMetaData.website_url != "" || ImageMetaData.website_url != null)
             {
-                WebUrl = API_Data.website_url;
+                WebUrl = ImageMetaData.website_url;
+                Debug.Log("WebUrl "+ WebUrl);
                 WebsiteButton.SetActive(true);
             }
             else

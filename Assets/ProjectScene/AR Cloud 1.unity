@@ -2991,6 +2991,7 @@ MonoBehaviour:
   AR_Camera: {fileID: 2057473436}
   BG_Image: {fileID: 192288749}
   PlayPauseImage: {fileID: 517591812}
+  IsUrlOpened: 0
 --- !u!1 &1373982577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4700,6 +4701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPlayer: {fileID: 114529228182197223}
+  VideoScreenManager: {fileID: 1373494653}
 --- !u!1 &1761997128
 GameObject:
   m_ObjectHideFlags: 0
