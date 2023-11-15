@@ -8,11 +8,14 @@ namespace TriLibCore.Samples
     /// </summary>
     public class LoadModelFromURLSample : MonoBehaviour
     {
+        public GameObject referenceModel;
         public GameObject ModelParent;
         public GameObject AR_Loading;
         public string ModelUrl;
-        public string ModelExtension;
+        //public string ModelExtension;
 
+        private bool IsModelTargetFound = false;
+        private bool ModelLoaded = false;
         
 
         private UnityWebRequest webRequest;
@@ -32,7 +35,7 @@ namespace TriLibCore.Samples
             ////var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
             //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, ModelExtension, false);
             ////AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
-            LoadModel();
+            //LoadModel();
         }
         public void LoadModel()
         {
@@ -41,9 +44,11 @@ namespace TriLibCore.Samples
             //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/8skatrcwgypmky6s/craneo.OBJ");
             //var webRequest = AssetDownloader.CreateWebRequest("https://filebin.net/95zui2czez94eifo/____.glb");
             //var webRequest = AssetDownloader.CreateWebRequest("https://ricardoreis.net/trilib/demos/sample/TriLibSampleModel.zip");
-            AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions, null, ModelExtension, false);
+            AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions, null, null,true);
             //AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions,null, "obj", false);
             //webRequest.
+            IsModelTargetFound = true;
+            ModelLoaded = false;
         }
         /// <summary>
         /// Called when any error occurs.
@@ -82,25 +87,37 @@ namespace TriLibCore.Samples
             // Set the position and scale of the object
             myObject.transform.localPosition = new Vector3(0f, 0f, 0f); // Set the local position
             myObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+            SizeManager(myObject.transform.GetChild(0).gameObject);
+            myObject.transform.GetChild(0).gameObject.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
             AR_Loading.SetActive(false);
-            //ModelLoaded = true;
+
+
+            ModelLoaded = true;
         }
-        //public void ModelTargetFound()
-        //{
-        //    if (IsModelTargetLost && !ModelLoaded)
-        //    {
-        //        webRequest.Abort();
-        //        LoadModel();
-        //    }
-        //}
-        //public void ModelTargetLost()
-        //{
-        //    if (IsModelLoading)
-        //    {
-        //        IsModelTargetLost = true;
-        //        webRequest.Abort();
-        //    }
-        //}
+        public void ModelTargetFound()
+        {
+            if (IsModelTargetFound)
+            {
+                if (!ModelLoaded)
+                {
+                    webRequest.Abort();
+                    LoadModel();
+                }
+            }
+            
+        }
+        public void ModelTargetLost()
+        {
+            if (IsModelTargetFound)
+            {
+                if (!ModelLoaded)
+                {
+                    webRequest.Abort();
+                    //StopAllCoroutines();
+                }
+            }
+        }
         /// <summary>
         /// Called when the Model Meshes and hierarchy are loaded.
         /// </summary>
@@ -109,6 +126,49 @@ namespace TriLibCore.Samples
         private void OnLoad(AssetLoaderContext assetLoaderContext)
         {
             Debug.Log("Model loaded. Loading materials.");
+        }
+
+        void SizeManager(GameObject Model)
+        {
+            // Get the size of the reference model
+            Vector3 referenceSize = GetObjectSize(referenceModel);
+
+            // Get the size of the current object
+            Vector3 objSize = GetObjectSize(Model);
+
+            // Calculate the scale factors for each dimension
+            float xScaleFactor = referenceSize.x / objSize.x;
+            float yScaleFactor = referenceSize.y / objSize.y;
+            float zScaleFactor = referenceSize.z / objSize.z;
+
+            // Apply the scale factors uniformly to x, y, and z dimensions
+            Model.transform.localScale = new Vector3(
+                Model.transform.localScale.x * xScaleFactor,
+                Model.transform.localScale.y * yScaleFactor,
+                Model.transform.localScale.z * zScaleFactor
+            );
+            float SmallScale = FindSmallestValue(Model.transform.localScale.x, Model.transform.localScale.y, Model.transform.localScale.z);
+            Model.transform.localScale = new Vector3(SmallScale, SmallScale, SmallScale);
+
+        }
+        Vector3 GetObjectSize(GameObject obj)
+        {
+            Renderer renderer = obj.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                return renderer.bounds.size;
+            }
+            else
+            {
+                // If there is no Renderer component, return the local scale
+                return obj.transform.localScale;
+            }
+        }
+        float FindSmallestValue(float x, float y, float z)
+        {
+            // Compare a, b, and c to find the smallest value
+            float smallest = Mathf.Min(x, Mathf.Min(y, z));
+            return smallest;
         }
     }
 }

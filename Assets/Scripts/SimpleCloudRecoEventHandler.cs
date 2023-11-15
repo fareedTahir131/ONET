@@ -13,7 +13,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     public ImageTargetBehaviour ImageTargetTemplate;
     //public LoadModelFromURLSample ModelLoader;
 
-    public ObjectDownloader ModelDownloader;
+    //public ObjectDownloader ModelDownloader;
+    public LoadModelFromURLSample loadModelFromURLSample;
     public VideoScreenManager ScreenManager;
 
     public GameObject AR_Loading;
@@ -156,7 +157,7 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
     }
     private void PerformOperation(API_Root API_Data)
     {
-        if (API_Data.model_image_link == "" || API_Data.model_image_link == null)
+        if (ImageMetaData.model_image_link == "" || ImageMetaData.model_image_link == null)
         {
             AR_Loading.SetActive(false);
             VideoObject.SetActive(true);
@@ -167,7 +168,9 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             AR_Loading.SetActive(true);
             VideoObject.SetActive(false);
             ModelDataFound = true;
-            ModelDownloader.DownloadModel(API_Data.model_image_link, API_Data.texture_link);
+            loadModelFromURLSample.ModelUrl = ImageMetaData.model_image_link;
+            loadModelFromURLSample.LoadModel();
+            //ModelDownloader.DownloadModel(API_Data.model_image_link, API_Data.texture_link);
             //ModelLoader.ModelUrl = API_Data.model_image_link;
             //ModelLoader.LoadModel();
         }
