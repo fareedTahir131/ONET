@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440681, g: 0.49333978, b: 0.57238823, a: 1}
+  m_IndirectSpecularColor: {r: 0.44407046, g: 0.49331486, b: 0.57238823, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 258031179}
   - component: {fileID: 258031178}
   - component: {fileID: 258031180}
+  - component: {fileID: 258031181}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -484,10 +485,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103283990}
+      - m_Target: {fileID: 258031181}
         m_TargetAssemblyTypeName: WebViewUrlManager, Assembly-CSharp
         m_MethodName: OpenUrl
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -496,6 +497,19 @@ MonoBehaviour:
           m_StringArgument: https://onenetworktechnology.com/luniverso-onet/
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &258031181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258031176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://onenetworktechnology.com/luniverso-onet/
 --- !u!1001 &332944843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1998,6 +2012,7 @@ GameObject:
   - component: {fileID: 1338598478}
   - component: {fileID: 1338598477}
   - component: {fileID: 1338598479}
+  - component: {fileID: 1338598480}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -2110,10 +2125,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103283990}
+      - m_Target: {fileID: 1338598480}
         m_TargetAssemblyTypeName: WebViewUrlManager, Assembly-CSharp
         m_MethodName: OpenUrl
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2122,6 +2137,19 @@ MonoBehaviour:
           m_StringArgument: https://onenetworktechnology.com/intorno-a-te/
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1338598480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338598475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://onenetworktechnology.com/intorno-a-te/
 --- !u!1 &1352199316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2637,7 @@ GameObject:
   - component: {fileID: 1418239598}
   - component: {fileID: 1418239597}
   - component: {fileID: 1418239599}
+  - component: {fileID: 1418239600}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -2721,10 +2750,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2103283990}
+      - m_Target: {fileID: 1418239600}
         m_TargetAssemblyTypeName: WebViewUrlManager, Assembly-CSharp
         m_MethodName: OpenUrl
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2733,6 +2762,19 @@ MonoBehaviour:
           m_StringArgument: https://onenetworktechnology.com/lavora-con-noi/
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1418239600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418239595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://onenetworktechnology.com/lavora-con-noi/
 --- !u!1 &1481034577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3761,7 +3803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2103283989
 Transform:
   m_ObjectHideFlags: 0
@@ -3789,3 +3831,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  url: 

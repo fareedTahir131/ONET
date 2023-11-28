@@ -5,29 +5,33 @@ using UnityEngine;
 
 public class WebViewUrlManager : MonoBehaviour
 {
-
+    public string url;
     UniWebView webView;
 
-    public void OpenUrl(string url)
+    private void Start()
+    {
+        LoadWebView();
+    }
+
+    public void OpenUrl()
+    {
+        LoadingManager.Instance.Loading(true);
+        webView.Show();
+        webView.EmbeddedToolbar.Show();
+        LoadingManager.Instance.Loading(false);
+
+    }
+    void LoadWebView()
     {
         webView = gameObject.AddComponent<UniWebView>();
         webView.Frame = new Rect(0, 0, Screen.width, Screen.height);
-        LoadingManager.Instance.Loading(true);
+        //LoadingManager.Instance.Loading(true);
         webView.Load(url);
 
         webView.OnShouldClose += (view) => {
             webView = null;
+            LoadWebView();
             return true;
         };
-
-        webView.OnPageFinished += (view, statusCode, url) => {
-            Invoke(nameof(ShowWebView), 1);
-        };
-    }
-    void ShowWebView()
-    {
-        webView.Show();
-        webView.EmbeddedToolbar.Show();
-        LoadingManager.Instance.Loading(false);
     }
 }

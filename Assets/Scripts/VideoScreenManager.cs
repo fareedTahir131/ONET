@@ -13,6 +13,8 @@ public class VideoScreenManager : MonoBehaviour
 
     public GameObject PlayPauseImage;
     public bool IsUrlOpened = false;
+
+    public AR_UrlManager UrlManager;
     //public Button WebLinkButton;
     //private RectTransform buttonRectTransform;
     //private Vector2 originalSize;
@@ -69,6 +71,7 @@ public class VideoScreenManager : MonoBehaviour
             Screen.orientation = ScreenOrientation.Portrait;
 
             //buttonRectTransform.sizeDelta = originalSize;
+            UrlManager.SetResolution();
         }
 
     }
@@ -96,7 +99,7 @@ public class VideoScreenManager : MonoBehaviour
             //Debug.Log("Width "+VideoPlayer.GetWidth());
             //Debug.Log("Height "+VideoPlayer.GetHeight());
 
-
+            UrlManager.SetResolution();
         }
 
     }

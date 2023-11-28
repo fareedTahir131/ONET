@@ -101,12 +101,13 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             //Application.OpenURL(WebUrl);
             VideoPlayer.IsUniWebViewOpened = true;
             VideoPlayer.Pause();
-            UrlManager.OpenUrl(WebUrl);
+            UrlManager.OpenUrl();
+            //UrlManager.OpenUrl(WebUrl);
         }
         else
         {
             VideoPlayer.IsUniWebViewOpened = true;
-            UrlManager.OpenUrl(WebUrl);
+            UrlManager.OpenUrl();
         }
         
     }
@@ -181,6 +182,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             {
                 WebUrl = ImageMetaData.website_url;
                 Debug.Log("WebUrl "+ WebUrl);
+                UrlManager.url = WebUrl;
+                UrlManager.LoadUrl();
                 WebsiteButton.SetActive(true);
             }
             else
