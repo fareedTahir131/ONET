@@ -12,11 +12,6 @@ public class AR_UrlManager : MonoBehaviour
 
     public void LoadUrl()
     {
-        //UniWebView TempWebView = gameObject.GetComponent<UniWebView>();
-        //if (TempWebView != null)
-        //{
-        //    Destroy(TempWebView);
-        //}
         webView = gameObject.AddComponent<UniWebView>();
         webView.Frame = new Rect(0, 0, Screen.width, Screen.height);
         webView.Load(url);
@@ -29,27 +24,6 @@ public class AR_UrlManager : MonoBehaviour
             LoadUrl();
             return true;
         };
-    }
-    public void SetResolution()
-    {
-        UniWebView TempWebView = gameObject.GetComponent<UniWebView>();
-        if (TempWebView != null)
-        {
-            Destroy(TempWebView);
-        }
-        webView = gameObject.AddComponent<UniWebView>();
-        webView.Frame = new Rect(0, 0, Screen.width, Screen.height);
-        webView.Load(url);
-
-        webView.OnShouldClose += (view) => {
-            VideoPlayer.IsUniWebViewOpened = false;
-            VideoScreenManager.IsUrlOpened = false;
-            VideoScreenManager.PlayPauseImage.SetActive(true);
-            webView = null;
-            LoadUrl();
-            return true;
-        };
-        Debug.Log("Reloaded");
     }
     public void OpenUrl()
     {

@@ -10,6 +10,7 @@ public class VideoScreenManager : MonoBehaviour
     public GameObject AR_Camera;
 
     public GameObject BG_Image;
+    public GameObject LinkBtn;
 
     public GameObject PlayPauseImage;
     public bool IsUrlOpened = false;
@@ -71,7 +72,7 @@ public class VideoScreenManager : MonoBehaviour
             Screen.orientation = ScreenOrientation.Portrait;
 
             //buttonRectTransform.sizeDelta = originalSize;
-            UrlManager.SetResolution();
+            LinkBtn.SetActive(true);
         }
 
     }
@@ -98,8 +99,7 @@ public class VideoScreenManager : MonoBehaviour
             //buttonRectTransform.sizeDelta = originalSize / 1.5f;
             //Debug.Log("Width "+VideoPlayer.GetWidth());
             //Debug.Log("Height "+VideoPlayer.GetHeight());
-
-            UrlManager.SetResolution();
+            LinkBtn.SetActive(false);
         }
 
     }

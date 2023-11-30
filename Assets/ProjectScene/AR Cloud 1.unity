@@ -3039,6 +3039,7 @@ MonoBehaviour:
   canvas: {fileID: 2112899163}
   AR_Camera: {fileID: 2057473436}
   BG_Image: {fileID: 192288749}
+  LinkBtn: {fileID: 1575987731}
   PlayPauseImage: {fileID: 517591812}
   IsUrlOpened: 0
   UrlManager: {fileID: 1721472505}
