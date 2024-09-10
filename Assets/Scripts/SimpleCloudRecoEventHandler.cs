@@ -49,15 +49,15 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         mCloudRecoBehaviour.UnregisterOnStateChangedEventHandler(OnStateChanged);
         mCloudRecoBehaviour.UnregisterOnNewSearchResultEventHandler(OnNewSearchResult);
     }
-    public void OnInitialized(TargetFinder targetFinder)
+    public void OnInitialized(CloudRecoBehaviour cloudRecoBehaviour)
     {
         Debug.Log("Cloud Reco initialized");
     }
-    public void OnInitError(TargetFinder.InitState initError)
+    public void OnInitError(CloudRecoBehaviour.InitError initError)
     {
         Debug.Log("Cloud Reco init error " + initError.ToString());
     }
-    public void OnUpdateError(TargetFinder.UpdateState updateError)
+    public void OnUpdateError(CloudRecoBehaviour.QueryError updateError)
     {
         Debug.Log("Cloud Reco update error " + updateError.ToString());
     }
@@ -67,31 +67,30 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         if (scanning)
         {
             // clear all known trackables
-            var tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-            tracker.GetTargetFinder<ImageTargetFinder>().ClearTrackables(false);
+            //var tracker = SimpleCloudRecoEventHandler.TrackerManager.Instance.GetTracker<ObjectTracker>();
+            //tracker.GetTargetFinder<ImageTargetFinder>().ClearTrackables(false);
         }
     }
     // Here we handle a cloud target recognition event
-    public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult)
+    public void OnNewSearchResult(CloudRecoBehaviour.CloudRecoSearchResult cloudRecoSearchResult)
     {
-        TargetFinder.CloudRecoSearchResult cloudRecoSearchResult =
-            (TargetFinder.CloudRecoSearchResult)targetSearchResult;
+        //CloudRecoBehaviour.CloudRecoSearchResult cloudRecoSearchResult =
+        //    (CloudRecoBehaviour.CloudRecoSearchResult)cloudRecoSearchResult;
         // do something with the target metadata
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         Debug.Log("mTargetMetadata " + mTargetMetadata);
         ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         Debug.Log("Image ID "+ ImageMetaData.id);
         StartCoroutine(GetData(ImageMetaData.id));
-        
+
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
-        mCloudRecoBehaviour.CloudRecoEnabled = false;
+        mCloudRecoBehaviour.enabled = false;
         // Build augmentation based on target 
         if (ImageTargetTemplate)
         {
             // enable the new result with the same ImageTargetBehaviour: 
-            ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
-            tracker.GetTargetFinder<ImageTargetFinder>().EnableTracking(targetSearchResult, ImageTargetTemplate.gameObject);
+            mCloudRecoBehaviour.EnableObservers(cloudRecoSearchResult, ImageTargetTemplate.gameObject);
         }
     }
     public void OpenWebUrl()
