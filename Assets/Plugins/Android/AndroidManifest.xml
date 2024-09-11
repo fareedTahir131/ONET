@@ -5,6 +5,40 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
     <application >
+
+    <receiver
+            android:name="com.google.android.play.core.assetpacks.AssetLocation"
+            android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackLocation"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackManagerFactory"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackState"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackStates"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackManager"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.AssetPackStateUpdateListener"
+        android:exported="true" />
+
+    <receiver
+        android:name="com.google.android.play.core.assetpacks.NativeAssetPackStateUpdateListener"
+        android:exported="true" />
+
+
         <activity android:name="com.unity3d.player.UnityPlayerActivity"
                   android:theme="@style/UnityThemeSelector">
             <intent-filter>
