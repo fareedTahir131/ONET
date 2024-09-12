@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 
-class UniWebViewEditorSettings: ScriptableObject
+public class UniWebViewEditorSettings: ScriptableObject
 {
-    const string assetPath = "Assets/Editor/UniWebView/settings.asset";
+    private const string AssetPath = "Assets/Editor/UniWebView/settings.asset";
 
     [SerializeField]
     internal bool usesCleartextTraffic = false;
@@ -30,6 +30,12 @@ class UniWebViewEditorSettings: ScriptableObject
     internal string androidBrowserVersion = null;
     
     [SerializeField]
+    internal bool addsAndroidXCore = false;
+    
+    [SerializeField]
+    internal string androidXCoreVersion = null;
+
+    [SerializeField]
     internal bool enableJetifier = true;
 
     [SerializeField]
@@ -40,15 +46,16 @@ class UniWebViewEditorSettings: ScriptableObject
 
     internal static string defaultKotlinVersion = "1.6.21";
     internal static string defaultAndroidBrowserVersion = "1.2.0";
+    internal static string defaultAndroidXCoreVersion = "1.5.0";
 
     internal static UniWebViewEditorSettings GetOrCreateSettings() {
-        var settings = AssetDatabase.LoadAssetAtPath<UniWebViewEditorSettings>(assetPath);
+        var settings = AssetDatabase.LoadAssetAtPath<UniWebViewEditorSettings>(AssetPath);
 
         if (settings == null) {
             settings = ScriptableObject.CreateInstance<UniWebViewEditorSettings>();
 
             Directory.CreateDirectory("Assets/Editor/UniWebView/");
-            AssetDatabase.CreateAsset(settings, assetPath);
+            AssetDatabase.CreateAsset(settings, AssetPath);
             AssetDatabase.SaveAssets();
         }
 
@@ -58,6 +65,24 @@ class UniWebViewEditorSettings: ScriptableObject
     internal static SerializedObject GetSerializedSettings() {
         return new SerializedObject(GetOrCreateSettings());
     }
+}
+
+// UniWebViewEditorSettings is not working well with AndroidProjectFilesModifier.
+// (reading it requires main thread, but the OnModifyAndroidProjectFiles is not in main thread)
+[Serializable]
+public class UniWebViewEditorSettingsReading {
+    public bool usesCleartextTraffic = false;
+    public bool writeExternalStorage = false;
+    public bool accessFineLocation = false;
+    public bool addsKotlin = true;
+    public string kotlinVersion = null;
+    public bool addsAndroidBrowser = true;
+    public string androidBrowserVersion = null;
+    public bool addsAndroidXCore = false;
+    public string androidXCoreVersion = null;
+    public bool enableJetifier = true;
+    public string[] authCallbackUrls = { };
+    public bool supportLINELogin = false;
 }
 
 static class UniWebViewSettingsProvider {
@@ -126,6 +151,21 @@ static class UniWebViewSettingsProvider {
             EditorGUILayout.PropertyField(settings.FindProperty("androidBrowserVersion"), GUILayout.Width(400));
             DrawDetailLabel("If not specified, use the default version: " + UniWebViewEditorSettings.defaultAndroidBrowserVersion);
             EditorGUI.indentLevel--;            
+        }
+
+        if (!addingBrowser) {
+            EditorGUILayout.BeginVertical("box");
+            EditorGUILayout.HelpBox("UniWebView at least requires `androidx.core` to run. Without it, your game will crash when launching.\nIf you do not have another `androidx.core` package in the project, enable the option below.", MessageType.Warning);
+            EditorGUILayout.PropertyField(settings.FindProperty("addsAndroidXCore"));
+            DrawDetailLabel("Turn on this if you disabled `Adds Android Browser` and there is no other library adding 'androidx.core:core'.");
+            var addingCore = settings.FindProperty("addsAndroidXCore").boolValue;
+            if (addingCore) {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(settings.FindProperty("androidXCoreVersion"), GUILayout.Width(400));
+                DrawDetailLabel("If not specified, use the default version: " + UniWebViewEditorSettings.defaultAndroidXCoreVersion);
+                EditorGUI.indentLevel--;            
+            }
+            EditorGUILayout.EndVertical();
         }
         
         
