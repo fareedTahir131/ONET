@@ -199,6 +199,15 @@ public class UniWebViewInterface {
         CheckPlatform();
         plugin.CallStatic("setAllowUniversalAccessFromFileURLs", flag);
     }
+    public static void BringContentToFront(string name) {
+        CheckPlatform();
+        plugin.CallStatic("bringContentToFront", name);
+    }
+
+    public static void SetForwardWebConsoleToNativeOutput(bool flag) {
+        CheckPlatform();
+        plugin.CallStatic("setForwardWebConsoleToNativeOutput", flag);
+    }
 
     public static void SetEnableKeyboardAvoidance(bool flag) {
         CheckPlatform();
@@ -213,6 +222,11 @@ public class UniWebViewInterface {
     public static void CleanCache(string name) {
         CheckPlatform();
         plugin.CallStatic("cleanCache", name);
+    }
+
+    public static void SetCacheMode(string name, int mode) {
+        CheckPlatform();
+        plugin.CallStatic("setCacheMode", name, mode);
     }
 
     public static void ClearCookies() {
@@ -389,6 +403,11 @@ public class UniWebViewInterface {
         plugin.CallStatic("setSupportMultipleWindows", name, enabled, allowJavaScriptOpening);
     }
 
+    public static void SetDragInteractionEnabled(string name, bool flag) {
+        CheckPlatform();
+        plugin.CallStatic("setDragInteractionEnabled", name, flag);
+    }
+
     public static void SetDefaultFontSize(string name, int size) {
         CheckPlatform();
         plugin.CallStatic("setDefaultFontSize", name, size);
@@ -412,6 +431,11 @@ public class UniWebViewInterface {
     public static void SetDownloadEventForContextMenuEnabled(string name, bool enabled) {
         CheckPlatform();
         plugin.CallStatic("setDownloadEventForContextMenuEnabled", name, enabled);
+    }
+
+    public static void SetAllowUserEditFileNameBeforeDownloading(string name, bool allowed) {
+        CheckPlatform();
+        plugin.CallStatic("setAllowUserEditFileNameBeforeDownloading", name, allowed);
     }
 
     // Safe Browsing
@@ -506,6 +530,31 @@ public class UniWebViewInterface {
     public static void SetEmeddedToolbarNavigationButtonsShow(string name, bool show) {
         CheckPlatform();
         plugin.CallStatic("setEmbeddedToolbarNavigationButtonsShow", name, show);
+    }
+
+    public static void StartSnapshotForRendering(string name, string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("startSnapshotForRendering", name, identifier);
+    }
+
+    public static void StopSnapshotForRendering(string name) {
+        CheckPlatform();
+        plugin.CallStatic("stopSnapshotForRendering", name);
+    }
+
+    public static byte[] GetRenderedData(string name, int x, int y, int width, int height) {
+        CheckPlatform();
+        var sbyteArray = plugin.CallStatic<sbyte[]>("getRenderedData", name, x, y, width, height);
+        if (sbyteArray == null) {
+            return null;
+        }
+        int length = sbyteArray.Length;
+        byte[] byteArray = new byte[length];
+        
+        for (int i = 0; i < length; i++) {
+            byteArray[i] = (byte)sbyteArray[i];
+        }   
+        return byteArray;
     }
 
     // Platform

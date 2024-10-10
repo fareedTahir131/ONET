@@ -81,10 +81,8 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         Debug.Log("mTargetMetadata " + mTargetMetadata);
         ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         Debug.Log("Image ID "+ ImageMetaData.id);
-        API_Data.id = ImageMetaData.id;
-        API_Data.video_url = ImageMetaData.video_url;
-        API_Data.website_url = ImageMetaData.website_url;
-        PerformOperation(API_Data); // Comment this line and enable GetData Coroutine to load model and video.
+        API_Root apiData = MapMetaDataToAPI(ImageMetaData);
+        PerformOperation(apiData); // Comment this line and enable GetData Coroutine to load model and video.
         //StartCoroutine(GetData(ImageMetaData.id));
 
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
@@ -96,6 +94,23 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             // enable the new result with the same ImageTargetBehaviour: 
             mCloudRecoBehaviour.EnableObservers(cloudRecoSearchResult, ImageTargetTemplate.gameObject);
         }
+    }
+    public API_Root MapMetaDataToAPI(MetaDataRoot metaData)
+    {
+        API_Root apiData = new API_Root
+        {
+            success = true, // Assuming success is true by default
+            id = metaData.id,
+            target_name = metaData.target_name,
+            video_id = metaData.video_id,
+            video_url = metaData.video_url,
+            image_link = metaData.image_link,
+            model_image_link = metaData.model_image_link,
+            texture_link = metaData.texture_link,
+            website_url = metaData.website_url
+        };
+
+        return apiData;
     }
     public void OpenWebUrl()
     {

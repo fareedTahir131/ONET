@@ -23,6 +23,9 @@ using AOT;
 using System.Reflection;
 
 public class UniWebViewInterface {
+    
+    private const string StaticListenerName = "UniWebView-static";
+    
     static UniWebViewInterface() {
         ConnectMessageSender();
         RegisterChannel();
@@ -68,6 +71,13 @@ public class UniWebViewInterface {
             "Received message sent from native. Name: " + name + " Method: " + method + " Params: " + parameters
         );
 
+        if (name == StaticListenerName) {
+            MethodInfo methodInfo = typeof(UniWebViewStaticListener)
+                .GetMethod(method, BindingFlags.Static | BindingFlags.Public);
+            methodInfo.Invoke(null, new object[] { parameters });
+            return;
+        }
+        
         var listener = UniWebViewNativeListener.GetListener(name);
         if (listener) {
             MethodInfo methodInfo = typeof(UniWebViewNativeListener).GetMethod(method);
@@ -310,6 +320,13 @@ public class UniWebViewInterface {
         CheckPlatform();
         uv_setAllowUniversalAccessFromFileURLs(flag);
     }
+    
+    [DllImport(DllLib)]
+    private static extern void uv_setForwardWebConsoleToNativeOutput(bool flag);
+    public static void SetForwardWebConsoleToNativeOutput(bool flag) {
+        CheckPlatform();
+        uv_setForwardWebConsoleToNativeOutput(flag);
+    }
 
     [DllImport(DllLib)]
     private static extern void uv_setAllowJavaScriptOpenWindow(bool flag);
@@ -337,6 +354,13 @@ public class UniWebViewInterface {
     public static void CleanCache(string name) {
         CheckPlatform();
         uv_cleanCache(name);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_setCacheMode(string name, int mode);
+    public static void SetCacheMode(string name, int mode) {
+        CheckPlatform();
+        uv_setCacheMode(name, mode);
     }
 
     [DllImport(DllLib)]
@@ -631,7 +655,14 @@ public class UniWebViewInterface {
         CheckPlatform();
         uv_removeDownloadMIMETypes(name, MIMEType, type);
     }
-
+    
+    [DllImport(DllLib)]
+    private static extern void uv_setAllowUserEditFileNameBeforeDownloading(string name, bool allowed);
+    public static void SetAllowUserEditFileNameBeforeDownloading(string name, bool allowed) {
+        CheckPlatform();
+        uv_setAllowUserEditFileNameBeforeDownloading(name, allowed);
+    }
+    
     [DllImport(DllLib)]
     private static extern void uv_setAllowUserChooseActionAfterDownloading(string name, bool allowed);
     public static void SetAllowUserChooseActionAfterDownloading(string name, bool allowed) {
@@ -696,6 +727,13 @@ public class UniWebViewInterface {
     public static void AuthenticationStart(string name) {
         CheckPlatform();
         uv_authenticationStart(name);
+    }
+    
+    [DllImport(DllLib)]
+    private static extern void uv_authenticationCancel(string name);
+    public static void AuthenticationCancel(string name) {
+        CheckPlatform();
+        uv_authenticationCancel(name);
     }
 
     [DllImport(DllLib)]
@@ -773,6 +811,33 @@ public class UniWebViewInterface {
     public static void SetEmeddedToolbarNavigationButtonsShow(string name, bool show) {
         CheckPlatform();
         uv_setEmbeddedToolbarNavigationButtonsShow(name, show);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_startSnapshotForRendering(string name, string identifier);
+    public static void StartSnapshotForRendering(string name, string identifier) {
+        CheckPlatform();
+        uv_startSnapshotForRendering(name, identifier);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_stopSnapshotForRendering(string name);
+    public static void StopSnapshotForRendering(string name) {
+        CheckPlatform();
+        uv_stopSnapshotForRendering(name);
+    }
+    
+    [DllImport(DllLib)]
+    private static extern IntPtr uv_getRenderedData(string name, int x, int y, int width, int height, out int length);
+    public static byte[] GetRenderedData(string name, int x, int y, int width, int height) {
+        CheckPlatform();
+
+        IntPtr dataPtr = uv_getRenderedData(name, x, y, width, height, out var length);
+        
+        byte[] managedData = new byte[length];
+        Marshal.Copy(dataPtr, managedData, 0, length);
+        
+        return managedData;
     }
 
     #region Deprecated
