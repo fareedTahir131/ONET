@@ -81,7 +81,11 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         Debug.Log("mTargetMetadata " + mTargetMetadata);
         ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         Debug.Log("Image ID "+ ImageMetaData.id);
-        StartCoroutine(GetData(ImageMetaData.id));
+        API_Data.id = ImageMetaData.id;
+        API_Data.video_url = ImageMetaData.video_url;
+        API_Data.website_url = ImageMetaData.website_url;
+        PerformOperation(API_Data); // Comment this line and enable GetData Coroutine to load model and video.
+        //StartCoroutine(GetData(ImageMetaData.id));
 
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
@@ -165,14 +169,15 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         }
         else
         {
-            AR_Loading.SetActive(true);
+            Debug.Log("Model Code has been disabled temporarily.");
+            /*AR_Loading.SetActive(true);
             VideoObject.SetActive(false);
             ModelDataFound = true;
             loadModelFromURLSample.ModelUrl = ImageMetaData.model_image_link;
             loadModelFromURLSample.LoadModel();
             //ModelDownloader.DownloadModel(API_Data.model_image_link, API_Data.texture_link);
             //ModelLoader.ModelUrl = API_Data.model_image_link;
-            //ModelLoader.LoadModel();
+            //ModelLoader.LoadModel();*/
         }
         try
         {

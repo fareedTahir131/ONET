@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44407046, g: 0.49331486, b: 0.57238823, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://onenetworktechnology.com/luniverso-onet/
+  url: https://onenetworktechnology.com/onet-ar/
 --- !u!1001 &332944843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056264de63f3b44cdb56c695db48ebbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://onenetworktechnology.com/lavora-con-noi/
+  url: https://onetcards.com
 --- !u!1 &1481034577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,7 +3651,7 @@ MonoBehaviour:
       - Find the activities and tourist attractions closest to you!
       - SHOP
       - Order your innovative services
-      - WORK WITH US
+      - DEVICE MANAGEMENT
       - Join our dynamic and passionate team
       Italian:
       - Home
@@ -3661,7 +3661,7 @@ MonoBehaviour:
       - "Trova le attivit\xE0 e le attrazioni turistiche pi\xF9 vicine a te!"
       - NEGOZIO
       - Ordina i tuoi servizi innovativi
-      - LAVORA CON NOI
+      - GESTIONE DEI DISPOSITIVI
       - Unisciti al nostro team dinamico e appassionato
       German:
       - HEIM
@@ -3672,7 +3672,7 @@ MonoBehaviour:
       - "Finden Sie die Aktivit\xE4ten und Touristenattraktionen in Ihrer N\xE4he!"
       - "GESCH\xC4FT"
       - Bestellen Sie Ihre innovativen Dienstleistungen
-      - ARBEITE MIT UNS
+      - "GER\xC4TEVERWALTUNG"
       - Werden Sie Teil unseres dynamischen und leidenschaftlichen Teams
       French:
       - MAISON
@@ -3684,7 +3684,7 @@ MonoBehaviour:
         vous !"
       - BOUTIQUE
       - Commandez vos services innovants
-      - TRAVAILLE AVEC NOUS
+      - GESTION DES APPAREILS
       - "Joignez-vous \xE0 notre \xE9quipe dynamique et passionn\xE9e"
       Spanish:
       - HOGAR
@@ -3695,7 +3695,7 @@ MonoBehaviour:
         a ti!"
       - COMERCIO
       - Solicite sus servicios innovadores
-      - TRABAJA CON NOSOTROS
+      - "GESTI\xD3N DE DISPOSITIVOS"
       - "\xDAnete a nuestro equipo din\xE1mico y apasionado"
       Romanian:
       - "ACAS\u0102"
@@ -3707,7 +3707,7 @@ MonoBehaviour:
         cele mai apropiate de dvs.!"
       - MAGAZIN
       - "Comanda\u021Bi-v\u0103 serviciile inovatoare"
-      - LUCREAZA CU NOI
+      - MANAGEMENTUL DISPOZITIVELOR
       - "Al\u0103tur\u0103-te echipei noastre dinamice \u0219i pasionate"
 --- !u!1 &2054193051
 GameObject:
