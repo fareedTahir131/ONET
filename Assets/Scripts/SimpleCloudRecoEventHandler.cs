@@ -81,8 +81,10 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         Debug.Log("mTargetMetadata " + mTargetMetadata);
         ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         Debug.Log("Image ID "+ ImageMetaData.id);
-        StartCoroutine(GetData(ImageMetaData.id));
-        
+        API_Root apiData = MapMetaDataToAPI(ImageMetaData);
+        PerformOperation(apiData);
+        //StartCoroutine(GetData(ImageMetaData.id));
+
         //MetaDataRoot ImageMetaData = JsonUtility.FromJson<MetaDataRoot>(mTargetMetadata);
         // stop the target finder (i.e. stop scanning the cloud)
         mCloudRecoBehaviour.CloudRecoEnabled = false;
@@ -93,6 +95,23 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
             ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
             tracker.GetTargetFinder<ImageTargetFinder>().EnableTracking(targetSearchResult, ImageTargetTemplate.gameObject);
         }
+    }
+    public API_Root MapMetaDataToAPI(MetaDataRoot metaData)
+    {
+        API_Root apiData = new API_Root
+        {
+            success = true, // Assuming success is true by default
+            id = metaData.id,
+            target_name = metaData.target_name,
+            video_id = metaData.video_id,
+            video_url = metaData.video_url,
+            image_link = metaData.image_link,
+            model_image_link = metaData.model_image_link,
+            texture_link = metaData.texture_link,
+            website_url = metaData.website_url
+        };
+
+        return apiData;
     }
     public void OpenWebUrl()
     {
@@ -166,14 +185,15 @@ public class SimpleCloudRecoEventHandler : MonoBehaviour
         }
         else
         {
-            AR_Loading.SetActive(true);
+            Debug.Log("Model functionality has been disabled temporarily.");
+            /*AR_Loading.SetActive(true);
             VideoObject.SetActive(false);
             ModelDataFound = true;
             loadModelFromURLSample.ModelUrl = ImageMetaData.model_image_link;
             loadModelFromURLSample.LoadModel();
             //ModelDownloader.DownloadModel(API_Data.model_image_link, API_Data.texture_link);
             //ModelLoader.ModelUrl = API_Data.model_image_link;
-            //ModelLoader.LoadModel();
+            //ModelLoader.LoadModel();*/
         }
         try
         {
